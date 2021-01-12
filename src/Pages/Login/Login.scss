@@ -1,0 +1,37 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid pink;
+  height: 100%;
+
+  main {
+    border: 1px solid red;
+
+    .inputBundle {
+      .loginInput {
+        border-style: none;
+        border-bottom: solid 1px #737373;
+        &:focus {
+          outline: none;
+          border-color: #63cd80;
+        }
+      }
+    }
+
+    .loginNewaccountPasswordBundle {
+      button {
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+
+  section {
+    border: 1px solid blue;
+  }
+
+  aside {
+    border: 1px solid black;
+  }
+}
