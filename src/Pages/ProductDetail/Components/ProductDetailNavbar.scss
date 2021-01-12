@@ -1,0 +1,31 @@
+@import "../../../styles/common.scss";
+
+.ProductDetailNavbar {
+  position: relative;
+  top: 60px;
+
+  .ProductDetailNavbar__Group {
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid $gray;
+
+    ul {
+      @include flex(space-around,_);
+      margin: 0 auto;
+      width: 60%;
+      padding: 1%;
+
+      li {
+        font-size: 12px;
+      }
+
+  }
+
+
+
+  }
+
+
+  
+  
+}
