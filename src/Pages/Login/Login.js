@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Login.scss";
+import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
 
 class Login extends Component {
   constructor() {
@@ -29,12 +30,12 @@ class Login extends Component {
       passwordCondition,
     });
 
-    if (!emailCondition || !passwordCondition) {
+    /*if (!emailCondition || !passwordCondition) {
       console.log("!emailCondition || !passwordCondition 실행");
       return; // 리턴 하는 게 맞나?
     }
 
-    fetch("api주소", {
+    fetch(SIGNIN_API, {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -57,11 +58,11 @@ class Login extends Component {
           matchedValue: false,
         });
         return;
-      });
+      });*/
   };
 
   render() {
-    const { emailCondition, passwordCondition } = this.state;
+    const { emailCondition, passwordCondition, matchedValue } = this.state;
     return (
       <div className="login">
         <main>
@@ -71,7 +72,7 @@ class Login extends Component {
           </section>
           <section className="inputBundle">
             <div className="emailBundle">
-              {matchedValue ? "" : <p>* 잘못된 로그인 시도</p>}
+              {!matchedValue && <p>* 잘못된 로그인 시도</p>}
               <p>이메일</p>
               <input
                 className="email loginInput"
@@ -79,7 +80,7 @@ class Login extends Component {
                 name="email"
                 onChange={this.handleIdPwInput}
               />
-              {emailCondition ? "" : <div>이메일은 필수입니다.</div>}
+              {!emailCondition && <div>이메일은 필수입니다.</div>}
             </div>
             <div className="pwBundle">
               <p>비밀번호</p>
@@ -89,7 +90,7 @@ class Login extends Component {
                 name="password"
                 onChange={this.handleInput}
               />
-              {passwordCondition ? "" : <div>비밀번호는 필수 입니다.</div>}
+              {!passwordCondition && <div>비밀번호는 필수 입니다.</div>}
             </div>
             <input type="checkbox" name="checkbox" />
             <span>사용자 이름 저장</span>
@@ -104,9 +105,9 @@ class Login extends Component {
         </main>
         <aside className="otherwayLoginBundle">
           <p>다른 서비스로 로그인</p>
-          <button className="facebookBtn"></button>
-          <button className="googleBtn"></button>
-          <button className="naverBtn"></button>
+          <button className="facebookBtn">FACEBOOK</button>
+          <button className="googleBtn">GOOGLE</button>
+          <button className="naverBtn">NAVER</button>
         </aside>
         <footer>
           <span>KOREAN</span>
