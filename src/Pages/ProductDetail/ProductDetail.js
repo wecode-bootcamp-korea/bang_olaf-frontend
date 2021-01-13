@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CommonNavbar from "../../Components/Navbar/CommonNavbar";
 import ProductDetailNavbar from "./Components/ProductDetailNavbar";
 import Summary from "./Components/Summary";
+import Inspirations from "./Components/Inspirations";
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
@@ -41,6 +42,7 @@ class ProductDetail extends Component {
             />
           );
         })}
+        <Inspirations />
       </>
     );
   }
