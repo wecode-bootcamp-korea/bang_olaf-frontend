@@ -1,0 +1,24 @@
+@import "../../styles/common.scss";
+
+.account {
+  border: 1px solid black;
+  @include flex(center, _);
+  flex-direction: column;
+
+  main {
+    border: 1px solid red;
+
+    section {
+      border: 1px solid blue;
+
+      article {
+        border: 1px solid green;
+        width: 470px;
+      }
+    }
+  }
+
+  footer {
+    border: 1px solid orange;
+  }
+}
