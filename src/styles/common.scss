@@ -2,6 +2,7 @@
 
 $black : #000;
 $gray : #f3f3f3;
+$white : #fff;
 
 @mixin flex($justify: space-between, $align: center) {
   display: flex;

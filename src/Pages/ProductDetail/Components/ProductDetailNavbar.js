@@ -9,20 +9,28 @@ class ProductDetailNavbar extends Component {
 
   render() {
     return (
-      <nav className="ProductDetailNavbar">
-        <div className="ProductDetailNavbar__Group">
+      <nav className="productDetailNavbar">
+        <div className="productDetailNavbarGroup">
           <ul>
             <li>
-              <span>개요</span>
+              <a href="#">
+                <span>개요</span>
+              </a>
             </li>
             <li>
-              <span>영감</span>
+              <a href="#">
+                <span>영감</span>
+              </a>
             </li>
             <li>
-              <span>특장점</span>
+              <a href="#">
+                <span>특장점</span>
+              </a>
             </li>
             <li>
-              <span>기술 사양</span>
+              <a href="#">
+                <span>기술 서양</span>
+              </a>
             </li>
           </ul>
         </div>

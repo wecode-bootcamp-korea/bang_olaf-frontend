@@ -14,7 +14,11 @@ class Routes extends React.Component {
           <Route exact path="/account" component={Account} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/product_list" component={ProductList} />
-          <Route exact path="/product_detail" component={ProductDetail} />
+          <Route
+            exact
+            path="/product_list/product_detail"
+            component={ProductDetail}
+          />
         </Switch>
       </Router>
     );

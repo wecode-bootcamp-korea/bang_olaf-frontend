@@ -1,0 +1,104 @@
+@import "../../../styles/common.scss";
+
+.summary {
+  position: relative;
+  top: 60px;
+  background-color: #fafafa;
+  height: 100%;
+  padding: 0 36px;
+  
+  .summaryGroup {
+    @include flex;
+    padding: 30px 10px;
+    background-color: #fafafa;
+
+    .summaryLeft {
+      height: 100%;
+      padding-left: 60px;
+
+      img {
+        width: 700px;
+        padding-top: 5%;
+      }
+    }
+  
+    .summaryRight {
+      height: 100%;
+      padding: 40px 60px;
+
+      .summaryTitle {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 40px;
+      }
+
+      .summaryDetailTitle {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      .summaryDescription {
+        margin-bottom: 20px;
+      }
+
+      .summaryDescriptionReview {
+        margin-bottom: 20px;
+      }
+
+      button {
+        border-radius: 60%;
+      }
+
+      ul {
+        @include flex(_, center);
+        margin-bottom: 35px;
+      }
+
+      li {
+        padding-left: 10px;
+      }
+
+      span {
+        padding-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .summaryPrice {
+        padding: 10px;
+        margin-top: 20px;
+
+      }
+    }
+  }
+
+  .summaryAttribute {
+    width: 100%;
+    background-color: #fafafa;
+    border-top: 1px solid #efefef;
+    
+    ul {
+      @include flex;
+      padding: 10px 20px 30px 0px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    li {
+      margin: 0 auto;
+
+      img {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        bottom: -7px;
+      }
+    }
+
+    a {
+      padding: 10px;
+      font-size: 14px;
+      color: #848484;
+    }
+  }
+
+}

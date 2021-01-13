@@ -7,7 +7,21 @@ import "./ProductDetail.scss";
 class ProductDetail extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      baseList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/productsData.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          baseList: data,
+        });
+      });
   }
 
   render() {
@@ -15,7 +29,18 @@ class ProductDetail extends Component {
       <>
         <CommonNavbar />
         <ProductDetailNavbar />
-        {/* <Summary /> */}
+        {this.state.baseList.map((item) => {
+          return (
+            <Summary
+              imageUrl={item.imageUrl}
+              title={item.title}
+              detailTitle={item.detailTitle}
+              description={item.description}
+              descriptionEnglish={item.descriptionEnglish}
+              price={item.price}
+            />
+          );
+        })}
       </>
     );
   }
