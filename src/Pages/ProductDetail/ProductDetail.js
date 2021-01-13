@@ -15,7 +15,6 @@ class ProductDetail extends Component {
       <>
         <CommonNavbar />
         <ProductDetailNavbar />
-        {/* <Summary /> */}
       </>
     );
   }

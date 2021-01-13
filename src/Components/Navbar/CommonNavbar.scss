@@ -1,21 +1,22 @@
 @import '../../styles/common.scss';
 
-.CommonNavbar {
-  
-  .CommonNavbar__Group {
+.commonNavbar {
+  .commonNavbarGroup {
     @include flex;
     position: fixed;
+    background-color: $white;
     width: 100%;
     height: 60px;
     padding: 1%;
     border-bottom: 1px solid $gray;
+    z-index: 1;
 
-    .nav__left {
+    .navLeft {
       font-size: 30px;
       padding-left: 10px;
     }
   
-    .nav__center {
+    .navCenter {
       font-size: 1.3rem;
       font-weight: 500;
       font-family: 'Varela Round', sans-serif;
@@ -26,7 +27,7 @@
 
     }
   
-    .nav__right {
+    .navRight {
       img {
         width: 26%;
         padding-right: 20px;
@@ -36,4 +37,3 @@
   }
   
 }
-
