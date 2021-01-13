@@ -80,7 +80,7 @@ class Login extends Component {
                 name="email"
                 onChange={this.handleIdPwInput}
               />
-              {!emailCondition && <div>이메일은 필수입니다.</div>}
+              {!emailCondition && <div>이메일은 필수 입력 항목입니다.</div>}
             </div>
             <div className="pwBundle">
               <p>비밀번호</p>
@@ -90,7 +90,9 @@ class Login extends Component {
                 name="password"
                 onChange={this.handleInput}
               />
-              {!passwordCondition && <div>비밀번호는 필수 입니다.</div>}
+              {!passwordCondition && (
+                <div>비밀번호은 필수 입력 항목입니다.</div>
+              )}
             </div>
             <input type="checkbox" name="checkbox" />
             <span>사용자 이름 저장</span>
