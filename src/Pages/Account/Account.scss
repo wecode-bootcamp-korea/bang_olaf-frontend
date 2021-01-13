@@ -2,23 +2,77 @@
 
 .account {
   border: 1px solid black;
-  @include flex(center, _);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+
+  nav {
+    border: 1px solid black;
+    height: 70px;
+  }
 
   main {
     border: 1px solid red;
+    width: 470px;
+    height: 750px;
+
+    .accountTitle {
+      border: 1px solid greenyellow;
+      font-size: 24px;
+      text-align: center;
+    }
 
     section {
       border: 1px solid blue;
 
       article {
         border: 1px solid green;
-        width: 470px;
+
+        div {
+          border: 1px solid pink;
+        }
+
+        .accountTextInput {
+          height: 79px;
+
+          p {
+            font-size: 14px;
+            color: #737373;
+          }
+
+          .warningMsg {
+            color: red;
+          }
+
+          input {
+            height: 32px;
+            width: 100%;
+            margin-top: 6px;
+            margin-bottom: 2px;
+            padding: 1px 2px 7px 0px;
+            border: 1px solid #737373;
+            border-bottom: 1px solid #737373;
+            font-size: 18px;
+
+            &:focus {
+              outline: none;
+              border-bottom: 3px solid #63cd80;
+            }
+          }
+        }
+
+        .agreement {
+          font-size: 14px;
+          color: #737373;
+        }
       }
     }
   }
 
   footer {
     border: 1px solid orange;
+    height: 38px;
+    width: 100%;
   }
 }
