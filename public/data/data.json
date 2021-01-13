@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "imageSrc": "../images/first.jpeg",
+    "modelName": "BESOUND A1 2ND GEN",
+    "description": "WATERPROOF BLUETOOTH SPEAKER",
+    "price": "250$"
+  },
+  {
+    "id": 2,
+    "imageSrc": "../images/second.jpeg",
+    "modelName": "BESOUND BALRANCE",
+    "description": "INOVATIVE, WIRELESS HOME SPEAKER",
+    "price": "2,250$"
+  },
+  {
+    "id": 3,
+    "imageSrc": "../images/third.jpeg",
+    "modelName": "BESOUND STAGE",
+    "description": "POWERFUL DORBY ATMOS SOUNDBAR",
+    "price": "1,750$"
+  }
+]
