@@ -1,0 +1,35 @@
+.inspirations {
+  margin-top: 4%;
+  padding: 60px 36px;
+  
+  .inspirationsGroup {
+    padding-left: 30%;
+
+    .inspirationsTitle {
+      font-size: 2rem;
+  
+      span {
+        border-bottom: 2px solid #000;
+      }
+  
+    }
+    .inspirationsDescription {
+      color: #727373;
+      margin-top: 30px;
+
+      p {
+        width: 90%;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  video {
+    outline: none;
+    margin: 8% 5%;
+  }
+
+}
+
+
+

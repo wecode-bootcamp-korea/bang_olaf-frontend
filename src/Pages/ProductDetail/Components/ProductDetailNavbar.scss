@@ -1,0 +1,28 @@
+@import "../../../styles/common.scss";
+
+.productDetailNavbar {
+
+  .productDetailNavbarGroup {
+    background-color: $white;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    border-bottom: 1px solid $gray;
+    z-index: 1;
+
+    ul { 
+      @include flex(space-around,_);
+      margin: 0 auto;
+      width: 60%;
+      padding: 1%;
+
+      li {
+        font-size: 12px;
+      }
+
+      a {
+        color: $black;
+      }
+    } 
+  }
+}
