@@ -1,10 +1,10 @@
 @import "../../../styles/common.scss";
 
-.ProductDetailNavbar {
+.productDetailNavbar {
   position: relative;
   top: 60px;
 
-  .ProductDetailNavbarGroup {
+  .productDetailNavbarGroup {
     position: fixed;
     width: 100%;
     border-bottom: 1px solid $gray;
@@ -17,6 +17,10 @@
 
       li {
         font-size: 12px;
+
+        span {
+          color: $black;
+        }
       }
     } 
   }

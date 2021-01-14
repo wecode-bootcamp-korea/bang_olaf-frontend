@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BiMenu } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import "./CommonNavbar.scss";
 
 class CommonNavbar extends Component {
@@ -16,21 +17,21 @@ class CommonNavbar extends Component {
             <BiMenu />
           </div>
           <div className="navCenter">
-            <a href="#home">
+            <Link to="/">
               <span>BANG & OLAF</span>
-            </a>
+            </Link>
           </div>
           <ul className="navRight">
             <li className="navRightGroup">
-              <a href="#">
+              <Link to="#">
                 <img alt="support--IMG" src="../images/support.PNG" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <img alt="location--IMG" src="../images/location.PNG" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <img alt="bag--IMG" src="../images/bag.PNG" />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
