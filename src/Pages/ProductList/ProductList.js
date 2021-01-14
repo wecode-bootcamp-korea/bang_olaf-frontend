@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./ProductList.scss";
 
-class ProductList extends Component {
+export class ProductList extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,7 +15,6 @@ class ProductList extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("res1 :", res);
         this.setState({
           initData: res,
         });
@@ -23,7 +22,6 @@ class ProductList extends Component {
   }
 
   render() {
-    console.log("res2 :", this.state.initData);
     return (
       <div className="ProductList">
         <div className="navList">
@@ -52,7 +50,7 @@ class ProductList extends Component {
         <div className="productListContainer">
           {this.state.initData.map((product) => {
             return (
-              <div key={product.id}>
+              <div className="productCard" key={product.id}>
                 <img src={product.imageSrc} />
                 <div>{product.modelName}</div>
                 <div>{product.description}</div>

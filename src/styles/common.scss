@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Varela+Round&display=swap");
-
 $black: #000;
 $gray: #f3f3f3;
 $white: #fff;
@@ -8,4 +7,9 @@ $white: #fff;
   display: flex;
   justify-content: $justify;
   align-items: $align;
+}
+
+%fullScreen {
+  width: 100vw;
+  height: 100vh;
 }
