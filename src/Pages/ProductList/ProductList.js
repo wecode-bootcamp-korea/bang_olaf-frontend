@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import ProductCard from "./ProductCard";
 import "./ProductList.scss";
 
-export class ProductList extends Component {
+class ProductList extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,7 +11,7 @@ export class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/data.json", {
+    fetch("/data/data.json", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -50,12 +51,13 @@ export class ProductList extends Component {
         <div className="productListContainer">
           {this.state.initData.map((product) => {
             return (
-              <div className="productCard" key={product.id}>
-                <img src={product.imageSrc} />
-                <div>{product.modelName}</div>
-                <div>{product.description}</div>
-                <div>{product.price}</div>
-              </div>
+              <ProductCard
+                id={product.id}
+                imageSrc={product.imageSrc}
+                modelName={product.modelName}
+                description={product.description}
+                price={product.price}
+              />
             );
           })}
         </div>
