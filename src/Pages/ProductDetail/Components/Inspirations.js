@@ -9,7 +9,7 @@ class Inspirations extends Component {
 
   render() {
     return (
-      <setion className="inspirations">
+      <section className="inspirations">
         <div className="inspirationsGroup">
           <div className="inspirationsTitle">
             <span>순간의 아름다움 포착</span>
@@ -27,7 +27,7 @@ class Inspirations extends Component {
           </div>
         </div>
 
-        <video width="1377" height="777" controls>
+        <video width="1350" height="777" controls>
           <source
             src="https://videos.ctfassets.net/8cd2csgvqd3m/1Avzis9oq5FwaXWIAvwfXv/6d9729a0cf57763c66b1cd995c3bd424/A1_2.gen_Full_desktop.mp4"
             type="video/mp4"
@@ -50,7 +50,7 @@ class Inspirations extends Component {
             ></img>
           </div>
         </article>
-      </setion>
+      </section>
     );
   }
 }

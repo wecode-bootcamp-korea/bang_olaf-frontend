@@ -1,11 +1,32 @@
 [
   {
-    "id": 1,
-    "imageUrl":"https://images.ctfassets.net/8cd2csgvqd3m/4ufektQNcTYJ7XpYKc7Eb7/a871c886ba2551ad2f6e4ed2fcc933d1/PS_A1_Neutral_Hero__1080x1080__copy.png?q=90&fm=webp&w=720&h=720&fit=fill",
-    "title": "Beosound A1 2nd Gen",
-    "detailTitle": "방수 휴대용 블루투스 스피커",
-    "description": "더 긴 사용 시간, 완전 방수, 통합 음성 동우미 그리고 스피커폰. 이동 중에 최고의 사운드를 즐길 수 있는 업그레이드된 제품을 만나보세요.",
-    "descriptionEnglish": "The weightiest and most refined little speaker we’ve heard in a while.",
-    "price": "US$250"
+    "productsData": {
+      "id": 1,
+      "imageUrl":"https://images.ctfassets.net/8cd2csgvqd3m/4ufektQNcTYJ7XpYKc7Eb7/a871c886ba2551ad2f6e4ed2fcc933d1/PS_A1_Neutral_Hero__1080x1080__copy.png?q=90&fm=webp&w=720&h=720&fit=fill",
+      "title": "Beosound A1 2nd Gen",
+      "detailTitle": "방수 휴대용 블루투스 스피커",
+      "description": "더 긴 사용 시간, 완전 방수, 통합 음성 동우미 그리고 스피커폰. 이동 중에 최고의 사운드를 즐길 수 있는 업그레이드된 제품을 만나보세요.",
+      "descriptionEnglish": "The weightiest and most refined little speaker we’ve heard in a while.",
+      "price": "US$250"
+    },
+    "inspirations": {
+      "id": "1",
+      "title": "순간의 아름다움 포착",
+      "description": "어디로 가든, 누구를 만나든, 무엇을 할 계획이든 순간의 아름다움을 포착하세요. 업그레이드된 Beosound A1은 한 손에 들고 다닐 수 있는 음악 행복 주머니입니다. 주변 모든 사람과 몇 시간 동안 음악을 공유할 수 있도록 설계되었습니다.",
+      "video": "https://videos.ctfassets.net/8cd2csgvqd3m/1Avzis9oq5FwaXWIAvwfXv/6d9729a0cf57763c66b1cd995c3bd424/A1_2.gen_Full_desktop.mp4",
+      "silde_image": ["https://images.ctfassets.net/8cd2csgvqd3m/7Lt2ApEasZPDnYJj3Gzn4g/797cebb4acbe656d80edab1681c6c8df/Feature1.jpg?q=90&fm=webp&w=720&h=405&fit=fill"]
+    },
+    "features": {
+      "id": "1",
+      "images": "https://images.ctfassets.net/8cd2csgvqd3m/7Lt2ApEasZPDnYJj3Gzn4g/797cebb4acbe656d80edab1681c6c8df/Feature1.jpg?q=90&fm=webp&w=720&h=405&fit=fill",
+      "title": "사운드",
+      "sub_title": "최고의 디자인 속에서 흘러나오는 사운드",
+      "desription": "세련되고 컴팩트한 디자인의 새로운 Beosound A1은 역대 최고의 음악 경험을 선사합니다. 뛰어난 True360 전방위 사운드가 자연스럽게 이 스피커를 주목하게 만들며, 멀티포인트 기능을 사용하여 두 개의 폰을 연결하고 선곡할 수 있습니다.",
+      "video": ["https://videos.ctfassets.net/8cd2csgvqd3m/1Avzis9oq5FwaXWIAvwfXv/6d9729a0cf57763c66b1cd995c3bd424/A1_2.gen_Full_desktop.mp4", "https://videos.ctfassets.net/8cd2csgvqd3m/1Avzis9oq5FwaXWIAvwfXv/6d9729a0cf57763c66b1cd995c3bd424/A1_2.gen_Full_desktop.mp4", "https://videos.ctfassets.net/8cd2csgvqd3m/1Avzis9oq5FwaXWIAvwfXv/6d9729a0cf57763c66b1cd995c3bd424/A1_2.gen_Full_desktop.mp4"]
+    },
+    "products_spec": {
+      "id": "1",
+      "images": "https://images.ctfassets.net/8cd2csgvqd3m/43kJ23Z66SjSQbPkTPxWA9/3edb3b7a100fa80eb42f53f5ed050b05/a1inthebox.png?q=90&fm=webp&w=720"
+    }
   }
 ]

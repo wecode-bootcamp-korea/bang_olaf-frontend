@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./ProductDetailNavbar.scss";
 
 class ProductDetailNavbar extends Component {
@@ -13,24 +14,24 @@ class ProductDetailNavbar extends Component {
         <div className="productDetailNavbarGroup">
           <ul>
             <li>
-              <a href="#">
+              <Link href="#">
                 <span>개요</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link href="#">
                 <span>영감</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link href="#">
                 <span>특장점</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link href="#">
                 <span>기술 서양</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import CommonNavbar from "../../Components/Navbar/CommonNavbar";
 // import ProductDetailNavbar from "./Components/ProductDetailNavbar";
-import Summary from "./Components/Summary";
+import Summary from "./Components/Summary/Summary";
 import Inspirations from "./Components/Inspirations";
 import Features from "./Components/Features";
 import "./ProductDetail.scss";
@@ -20,6 +20,7 @@ class ProductDetail extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         this.setState({
           baseList: data,
         });
@@ -34,12 +35,13 @@ class ProductDetail extends Component {
         {this.state.baseList.map((item) => {
           return (
             <Summary
-              imageUrl={item.imageUrl}
-              title={item.title}
-              detailTitle={item.detailTitle}
-              description={item.description}
-              descriptionEnglish={item.descriptionEnglish}
-              price={item.price}
+              key={item.productsData.id}
+              imageUrl={item.productsData.imageUrl}
+              title={item.productsData.title}
+              detailTitle={item.productsData.detailTitle}
+              description={item.productsData.description}
+              descriptionEnglish={item.productsData.descriptionEnglish}
+              price={item.productsData.price}
             />
           );
         })}

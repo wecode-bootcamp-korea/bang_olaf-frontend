@@ -1,28 +1,18 @@
-@import "../../../styles/common.scss";
+@import "../../../../styles/common.scss";
 
 .summary {
   position: relative;
-  top: 60px;
+  top: 140px;
   background-color: #fafafa;
   height: 100%;
   padding: 0 36px;
   
   .summaryGroup {
     @include flex;
-    padding: 30px 10px;
+    padding: 100px;
     background-color: #fafafa;
-
-    .summaryLeft {
-      height: 100%;
-      padding-left: 60px;
-
-      img {
-        width: 700px;
-        padding-top: 5%;
-      }
-    }
   
-    .summaryRight {
+    .summaryContent {
       height: 100%;
       padding: 40px 60px;
 
