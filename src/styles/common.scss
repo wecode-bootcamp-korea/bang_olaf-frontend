@@ -3,6 +3,7 @@
 $black : #000;
 $gray : #F3F3F3;
 $white : #fff;
+$fontColor : #727373;
 
 @mixin flex($justify: space-between, $align: center) {
   display: flex;

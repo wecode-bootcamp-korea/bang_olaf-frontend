@@ -1,0 +1,89 @@
+@import "../../../styles/common.scss";
+
+%featuresInfo {
+  h3 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $fontColor;
+  }
+}
+
+.features {
+  padding: 120px 36px 60px;
+
+  .featuresGroup {
+    padding-bottom: 5%;
+    .boxTop {
+      .featuresbox01 {
+        text-align: center;
+
+        img {
+          width: 50%;
+          padding-bottom: 20px;
+        }
+
+        .boxTopInfo {
+          line-height: 1.5rem;
+          text-align: left;
+          width: 50%;
+          margin: 0 auto;
+          @extend %featuresInfo
+        }
+
+     }
+    }
+    .boxBottom {
+      @include flex;
+      margin-top: 50px;
+
+      .featuresbox02 {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .featuresContainer01, .featuresContainer02  {
+    @include flex(space-between);
+    padding-bottom: 10%;
+
+    .featuresContainerInfo {
+      @extend %featuresInfo;
+      line-height: 1.5rem;
+      margin-left: 50px;
+
+      p {
+        width: 80%;
+      }
+
+    }
+
+    img {
+      width: 45rem;
+      margin-left: 100px;
+    }
+
+  }
+
+  .featuresContainer02 {
+    margin-left: 100px;
+
+  }
+
+  
+
+
+  
+}
+
+
+
+

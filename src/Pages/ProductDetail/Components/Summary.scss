@@ -93,12 +93,17 @@
         position: relative;
         bottom: -7px;
       }
+
     }
 
     a {
       padding: 10px;
       font-size: 14px;
       color: #848484;
+
+      &:hover {
+        color: $black;
+      }
     }
   }
 

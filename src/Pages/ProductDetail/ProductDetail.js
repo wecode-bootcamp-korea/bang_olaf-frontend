@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import ProductDetailNavbar from "./Components/ProductDetailNavbar";
 import Summary from "./Components/Summary";
 import Inspirations from "./Components/Inspirations";
+import Features from "./Components/Features";
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
@@ -43,6 +44,7 @@ class ProductDetail extends Component {
           );
         })}
         <Inspirations />
+        <Features />
       </>
     );
   }
