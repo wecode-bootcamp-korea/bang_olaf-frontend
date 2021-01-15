@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Main from "./Pages/Main/Main";
+import CommonNavbar from "./Components/Navbar/CommonNavbar";
 import Account from "./Pages/Account/Account";
 import Login from "./Pages/Login/Login";
 import ProductList from "./Pages/ProductList/ProductList";
@@ -11,6 +12,7 @@ class Routes extends React.Component {
   render() {
     return (
       <Router>
+        <CommonNavbar />
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/account" component={Account} />

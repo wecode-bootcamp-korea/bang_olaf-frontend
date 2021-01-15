@@ -30,7 +30,7 @@ class Login extends Component {
       passwordCondition,
     });
 
-    /*if (!emailCondition || !passwordCondition) {
+    if (!emailCondition || !passwordCondition) {
       console.log("!emailCondition || !passwordCondition 실행");
       return; // 리턴 하는 게 맞나?
     }
@@ -39,7 +39,7 @@ class Login extends Component {
       method: "POST",
       body: JSON.stringify({
         email: email,
-        password: password,
+        input_password: password, //변경
       }),
     })
       .then((responce) => responce.json())
@@ -58,7 +58,7 @@ class Login extends Component {
           matchedValue: false,
         });
         return;
-      });*/
+      });
   };
 
   render() {
