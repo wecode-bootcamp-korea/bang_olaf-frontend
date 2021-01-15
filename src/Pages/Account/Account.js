@@ -1,4 +1,5 @@
 import React from "react";
+import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
 import "./Account.scss";
 
 class Account extends React.Component {
@@ -14,76 +15,92 @@ class Account extends React.Component {
       password: "",
       pwLengthCondition: true,
       checkPw: "",
-      checkpwAndPwhasValue: true,
-      isSamePws: true,
       checkpwCondition: true,
       adagreement: false,
       serviceagreement: false,
-      //possibleRegisterConditon: false,
     };
   }
 
+  // 인풋의 변화연동
   handleInput = (e) => {
-    const { name, value, checked } = e.target;
-    this.setState({
-      [name]: value,
-      //[name]: checked,
-    });
+    const { name, value } = e.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.secondCondition(),
+    );
   };
 
-  // 2차 유효성 검사 리스트
+  // 체크박스의 변화연동
+  handleCheckbox = (e) => {
+    const { name, checked } = e.target;
+    this.setState(
+      {
+        [name]: checked,
+      },
+      () => this.secondCondition(),
+    );
+  };
+
+  // 이메일, 비번, 비번 확인 조건
   secondCondition = () => {
-    const { firstname, lastname, email, password, checkPw } = this.state;
-    const firstnamehasValue = Boolean(firstname); // 이름에 값 들어옴
+    const { email, password, checkPw } = this.state;
 
-    const lastnamehasValue = Boolean(lastname); // 성에 값 들어옴
-    const emailCondition = email.includes("@"); // 이메일 @ 확인
-    const pwLengthCondition = password.length >= 10 && password.length <= 30; // 비번 길이
-    const checkpwAndPwhasValue = Boolean(password) && Boolean(checkPw); // 비번 비번확인 값 있음?
-    const isSamePws = password === checkPw; // 비번 === 비번 확인
-    const checkpwCondition = checkpwAndPwhasValue && isSamePws; // 비번확인 모든 조건
+    const checkemailCondition = email.includes("@"); // 이메일 @ 확인
+    const checkpwLengthCondition =
+      password.length >= 10 && password.length <= 30; // 비번 길이
+    //const checkpwAndPwhasValue = Boolean(password) && Boolean(checkPw); // 비번 비번확인 값 있음?
+    //const isSamePws = password === checkPw; // 비번 === 비번 확인
+    const checkpwConditionAll = password === checkPw; // 비번확인 모든 조건
 
-    if (firstnamehasValue.length) {
-      this.setState({ firstnamehasValue });
+    if (email) {
+      this.setState({
+        emailCondition: checkemailCondition,
+      });
     }
 
-    // this.setState = {
-    //   lastnamehasValue,
-    //   emailCondition,
-    //   pwLengthCondition,
-    //   checkpwAndPwhasValue,
-    //   isSamePws,
-    //   checkpwCondition,
-    // };
+    if (checkPw && password) {
+      this.setState({
+        checkpwCondition: checkpwConditionAll,
+      });
+    }
+
+    if (password) {
+      this.setState({
+        pwLengthCondition: checkpwLengthCondition,
+      });
+    }
   };
 
-  /*registerCondition = () => {
-    // 유효성 검사
-    const {
-      firstname,
-      lastname,
-      email,
-      password,
-      // pwLengthCondition,
-      checkPw,
-      serviceagreement,
-    } = this.state; // 다 넣었는지 추후 확인
-
-    const possibleRegisterConditon =
-      firstname &&
-      lastname &&
-      //emailCondition &&
-      password &&
-      checkPw &&
-      serviceagreement;
-
-    this.setState({
-      possibleRegisterConditon: possibleRegisterConditon,
-    });
-  };*/
-
+  // 버튼 클릭시 실행되는 메소드
   /*handleBtn = () => {
-    
+    // 원래 조건 넣고 setState하는 자리
+
+    // if (!유효성 검사) {
+    //   return;
+    // }
+
+    fetch(SIGNUP_API, {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password, // 로그인은 pw로 함.
+      }),
+    });
+
+      .then((responce)=>responce.json())
+      .then((result)=>{
+        console.log({result})
+
+        // 
+        if (result.message === "SUCCESS") {
+          localStorage.setItem("token", result.Authorization);
+          this.props.history.push("/") //2주차에 마이페이지
+          return;
+        }
+
+      })
   };*/
 
   render() {
@@ -96,9 +113,10 @@ class Account extends React.Component {
       password,
       pwLengthCondition,
       checkPw,
+      checkpwCondition,
     } = this.state;
 
-    console.log(firstnamehasValue);
+    console.log(this.state);
     return (
       <div className="account">
         <nav>네브바 자리</nav>
@@ -124,7 +142,7 @@ class Account extends React.Component {
                   name="lastname"
                   onChange={this.handleInput}
                 />
-                {lastnamehasValue && (
+                {!lastnamehasValue && (
                   <p className="warningMsg">성은 필수 입력 항목입니다.</p>
                 )}
               </div>
@@ -158,9 +176,9 @@ class Account extends React.Component {
                   name="checkPw"
                   onChange={this.handleInput}
                 />
-                {/* {pwAndPwValueSame && (
+                {!checkpwCondition && (
                   <p className="warningMsg">비밀번호가 일치 하지 않습니다.</p>
-                )} */}
+                )}
               </div>
             </article>
             <article className="checkboxBundle">
@@ -170,7 +188,7 @@ class Account extends React.Component {
                     id="firstCheckbox"
                     type="checkbox"
                     name="adagreement"
-                    onClick={this.handleInput}
+                    onClick={this.handleCheckbox}
                   />
                   <label for="firstCheckbox"></label>
                   <span className="agreement adtitle">
@@ -191,7 +209,7 @@ class Account extends React.Component {
                   id="secondCheckbox"
                   type="checkbox"
                   name="serviceagreement"
-                  onClick={this.handleInput}
+                  onClick={this.handleCheckbox}
                 />
                 <label for="secondCheckbox"></label>
                 <span className="agreement service">
@@ -201,7 +219,7 @@ class Account extends React.Component {
             </article>
           </section>
           <section className="registerMovetologinBundle">
-            <button className="registrationBtn" onClick={this.secondCondition}>
+            <button className="registrationBtn" onClick={this.handleBtn}>
               등록
             </button>
             <div>페이지의 로그로 이동</div>
