@@ -6,13 +6,17 @@ class Account extends React.Component {
     super();
     this.state = {
       firstname: "",
+      firstnamehasValue: true,
       lastname: "",
+      lastnamehasValue: true,
       email: "",
       emailCondition: true,
       password: "",
       pwLengthCondition: true,
       checkPw: "",
-      pwAndPwValueSame: true,
+      checkpwAndPwhasValue: true,
+      isSamePws: true,
+      checkpwCondition: true,
       adagreement: false,
       serviceagreement: false,
       //possibleRegisterConditon: false,
@@ -21,48 +25,36 @@ class Account extends React.Component {
 
   handleInput = (e) => {
     const { name, value, checked } = e.target;
-    this.setState(
-      {
-        [name]: value,
-        //[name]: checked,
-      },
-      () => this.checkEmailCondition(),
-      () => this.checkpwLengthCondition(),
-      () => this.checkpwAndPwCondition(),
-    );
-  };
-
-  // 이메일 @ 확인
-  checkEmailCondition = () => {
-    const { email } = this.state;
-    console.log("checkEmailCondition 메소드 들어옴 ", email);
-    const emailCondition = email.includes("@");
     this.setState({
-      emailCondition,
+      [name]: value,
+      //[name]: checked,
     });
   };
 
-  // 비밀번호 길이 확인
-  checkpwLengthCondition = () => {
-    const { password } = this.state;
-    console.log("checkpwLengthCondition 메소드 들어옴 ", password);
-    const pwLengthCondition = password.length >= 10 && password.length <= 30;
-    this.setState({
-      pwLengthCondition,
-    });
-  };
+  // 2차 유효성 검사 리스트
+  secondCondition = () => {
+    const { firstname, lastname, email, password, checkPw } = this.state;
+    const firstnamehasValue = Boolean(firstname); // 이름에 값 들어옴
 
-  // 비번 & 비번 확인 값 있는지 확인
-  checkpwAndPwCondition = () => {
-    const { password, checkPw } = this.state;
-    console.log("checkpwAndPwCondition 들어옴", password, checkPw);
-    const checkpwAndPwValue = password && checkPw;
-    console.log(checkpwAndPwValue);
-    // const isSamePws = password === checkPw;
-    // const pwAndPwValueSame = checkpwAndPwValue && isSamePws;
-    // this.setState({
-    //   pwAndPwValueSame,
-    // });
+    const lastnamehasValue = Boolean(lastname); // 성에 값 들어옴
+    const emailCondition = email.includes("@"); // 이메일 @ 확인
+    const pwLengthCondition = password.length >= 10 && password.length <= 30; // 비번 길이
+    const checkpwAndPwhasValue = Boolean(password) && Boolean(checkPw); // 비번 비번확인 값 있음?
+    const isSamePws = password === checkPw; // 비번 === 비번 확인
+    const checkpwCondition = checkpwAndPwhasValue && isSamePws; // 비번확인 모든 조건
+
+    if (firstnamehasValue.length) {
+      this.setState({ firstnamehasValue });
+    }
+
+    // this.setState = {
+    //   lastnamehasValue,
+    //   emailCondition,
+    //   pwLengthCondition,
+    //   checkpwAndPwhasValue,
+    //   isSamePws,
+    //   checkpwCondition,
+    // };
   };
 
   /*registerCondition = () => {
@@ -77,7 +69,6 @@ class Account extends React.Component {
       serviceagreement,
     } = this.state; // 다 넣었는지 추후 확인
 
-    //const emailCondition = email.includes("@");
     const possibleRegisterConditon =
       firstname &&
       lastname &&
@@ -96,8 +87,18 @@ class Account extends React.Component {
   };*/
 
   render() {
-    //console.log(this.state.email);
-    const { emailCondition, password, pwLengthCondition, checkPw } = this.state;
+    const {
+      firstname,
+      firstnamehasValue,
+      lastname,
+      lastnamehasValue,
+      emailCondition,
+      password,
+      pwLengthCondition,
+      checkPw,
+    } = this.state;
+
+    console.log(firstnamehasValue);
     return (
       <div className="account">
         <nav>네브바 자리</nav>
@@ -112,7 +113,9 @@ class Account extends React.Component {
                   name="firstname"
                   onChange={this.handleInput}
                 />
-                <p className="warningMsg">이름은 필수 입력 항목입니다.</p>
+                {!firstnamehasValue && (
+                  <p className="warningMsg">이름은 필수 입력 항목입니다.</p>
+                )}
               </div>
               <div className="lastname accountTextInput">
                 <p>성</p>
@@ -121,7 +124,9 @@ class Account extends React.Component {
                   name="lastname"
                   onChange={this.handleInput}
                 />
-                <p className="warningMsg">성은 필수 입력 항목입니다.</p>
+                {lastnamehasValue && (
+                  <p className="warningMsg">성은 필수 입력 항목입니다.</p>
+                )}
               </div>
               <div className="email accountTextInput">
                 <p>이메일</p>
@@ -196,7 +201,9 @@ class Account extends React.Component {
             </article>
           </section>
           <section className="registerMovetologinBundle">
-            <button className="registrationBtn">등록</button>
+            <button className="registrationBtn" onClick={this.secondCondition}>
+              등록
+            </button>
             <div>페이지의 로그로 이동</div>
           </section>
         </main>
