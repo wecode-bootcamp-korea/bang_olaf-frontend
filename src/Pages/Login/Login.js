@@ -7,7 +7,7 @@ class Login extends Component {
     super();
     this.state = {
       email: "",
-      password: "",
+      pw: "",
       emailCondition: true,
       passwordCondition: true,
       matchedValue: true,
@@ -22,16 +22,18 @@ class Login extends Component {
   };
 
   handleLoginBtn = (e) => {
-    const { email, password } = this.state;
+    const { email, pw } = this.state;
     const emailCondition = email.includes("@");
-    const passwordCondition = password.length >= 5;
+    const passwordCondition = pw.length >= 5;
+    const matchedValue = emailCondition && passwordCondition;
     this.setState({
       emailCondition,
       passwordCondition,
+      matchedValue,
     });
 
-    if (!emailCondition || !passwordCondition) {
-      console.log("!emailCondition || !passwordCondition 실행");
+    if (!matchedValue) {
+      console.log("!matchedValue 실행");
       return; // 리턴 하는 게 맞나?
     }
 
@@ -39,7 +41,7 @@ class Login extends Component {
       method: "POST",
       body: JSON.stringify({
         email: email,
-        input_password: password, //변경
+        password: pw, //변경 (하민: input_password)
       }),
     })
       .then((responce) => responce.json())
@@ -48,7 +50,7 @@ class Login extends Component {
 
         if (result.message === "SUCCESS") {
           // 메세지 키명: 콘솔 확인 후 백과 상의
-          localStorage.setItem("token", token.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
+          localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
           this.props.history.push("/");
           return;
         }
@@ -63,6 +65,7 @@ class Login extends Component {
 
   render() {
     const { emailCondition, passwordCondition, matchedValue } = this.state;
+    console.log(this.state);
     return (
       <div className="login">
         <main>
@@ -87,8 +90,8 @@ class Login extends Component {
               <input
                 className="pw loginInput"
                 type="password"
-                name="password"
-                onChange={this.handleInput}
+                name="pw"
+                onChange={this.handleIdPwInput}
               />
               {!passwordCondition && (
                 <div>비밀번호은 필수 입력 항목입니다.</div>
