@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./Login.scss";
 import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
+import "./Login.scss";
 
 class Login extends Component {
   constructor() {
@@ -37,7 +37,8 @@ class Login extends Component {
       return; // 리턴 하는 게 맞나?
     }
 
-    fetch(SIGNIN_API, {
+    fetch(SIGNUP_API, {
+      // 회원가입, 로그인 시 바꿔야 함.
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -48,7 +49,8 @@ class Login extends Component {
       .then((result) => {
         console.log({ result }); // 백의 결과 값을 보고 키명과 메세지 수정 가능
 
-        if (result.message === "SUCCESS") {
+        // 로그인에서만 쓰는 코드가 맞나 ?
+        /*if (result.message === "SUCCESS") {
           // 메세지 키명: 콘솔 확인 후 백과 상의
           localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
           this.props.history.push("/");
@@ -59,7 +61,7 @@ class Login extends Component {
         this.setState({
           matchedValue: false,
         });
-        return;
+        return;*/
       });
   };
 
