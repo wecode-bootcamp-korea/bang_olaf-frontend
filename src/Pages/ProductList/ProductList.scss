@@ -18,9 +18,11 @@
 
   .navListTitle {
     border: 1px solid black;
-    padding-left: 100px;
-    font-size: 100px;
-    text-decoration: underline;
+
+    div {
+      border-bottom: 10px solid yellow;
+      font-size: 100px;
+    }
   }
   .video {
     width: 100%;
@@ -39,6 +41,9 @@
       justify-content: space-around;
       li {
         list-style: none;
+      }
+      li :hover {
+        border-bottom: 1px solid black;
       }
     }
   }

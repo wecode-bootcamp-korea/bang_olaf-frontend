@@ -34,7 +34,9 @@ class ProductList extends Component {
             <li>stories</li>
           </ul>
         </div>
-        <div className="navListTitle">Speaker</div>
+        <div className="navListTitle">
+          <span>Speaker</span>
+        </div>
         <div className="video">
           <img src="../images/logo.jpeg" alt="logo" />
         </div>
