@@ -7,28 +7,59 @@ class Login extends Component {
     super();
     this.state = {
       email: "",
-      pw: "",
+      emailhasValue: true,
       emailCondition: true,
-      passwordCondition: true,
+      pw: "",
+      pwhasValue: true,
       matchedValue: true,
+      validUser: true,
     };
   }
 
   handleIdPwInput = (e) => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.secondCondition(),
+    );
+  };
+
+  secondCondition = () => {
+    const { email, pw } = this.state;
+    const emailCondition = email.includes("@");
+
+    if (email) {
+      this.setState({
+        emailCondition,
+        emailhasValue: true,
+      });
+    } else if (!email) {
+      this.setState({
+        emailCondition: true,
+        emailhasValue: false,
+      });
+    }
+
+    if (pw) {
+      this.setState({
+        pwhasValue: true,
+      });
+    } else if (!pw) {
+      this.setState({
+        pwhasValue: false,
+      });
+    }
   };
 
   handleLoginBtn = (e) => {
-    const { email, pw } = this.state;
-    const emailCondition = email.includes("@");
-    const passwordCondition = pw.length >= 5;
-    const matchedValue = emailCondition && passwordCondition;
+    const { email, pw, emailhasValue, emailCondition, pwhasValue } = this.state;
+    const matchedValue = emailhasValue && emailCondition && pwhasValue;
     this.setState({
+      emailhasValue,
       emailCondition,
-      passwordCondition,
+      pwhasValue,
       matchedValue,
     });
 
@@ -59,14 +90,14 @@ class Login extends Component {
 
         // result.message === "SUCCESS"가 아닐 경우
         this.setState({
-          matchedValue: false,
+          validUser: false,
         });
         return;
       });
   };
 
   render() {
-    const { emailCondition, passwordCondition, matchedValue } = this.state;
+    const { emailhasValue, emailCondition, pwhasValue, validUser } = this.state;
     console.log(this.state);
     return (
       <div className="login">
@@ -77,7 +108,7 @@ class Login extends Component {
           </section>
           <section className="inputBundle">
             <div className="emailBundle">
-              {!matchedValue && <p>* 잘못된 로그인 시도</p>}
+              {!validUser && <p>* 잘못된 로그인 시도</p>}
               <p>이메일</p>
               <input
                 className="email loginInput"
@@ -85,7 +116,8 @@ class Login extends Component {
                 name="email"
                 onChange={this.handleIdPwInput}
               />
-              {!emailCondition && <div>이메일은 필수 입력 항목입니다.</div>}
+              {!emailCondition && <div>유효한 이메일 형식이 아닙니다.</div>}
+              {!emailhasValue && <div>이메일은 필수 입력 항목입니다.</div>}
             </div>
             <div className="pwBundle">
               <p>비밀번호</p>
@@ -95,9 +127,7 @@ class Login extends Component {
                 name="pw"
                 onChange={this.handleIdPwInput}
               />
-              {!passwordCondition && (
-                <div>비밀번호은 필수 입력 항목입니다.</div>
-              )}
+              {!pwhasValue && <div>비밀번호은 필수 입력 항목입니다.</div>}
             </div>
             <input type="checkbox" name="checkbox" />
             <span>사용자 이름 저장</span>
