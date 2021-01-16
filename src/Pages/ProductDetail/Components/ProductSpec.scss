@@ -1,0 +1,74 @@
+@import "../../../styles/common.scss";
+
+%featuresInfo {
+  h3 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $fontColor;
+  }
+}
+
+.ProductSpec {
+  background-color: #fafafa;
+  margin: 0 auto;
+
+  .ProductSpecGroup {
+    @include flex(center);
+    text-align: center;
+    margin: 0 auto;
+
+    .ProductSpecImg {
+      img {
+        width: 80%;
+      }
+    }
+  
+    .ProductSpecInfo {
+      @extend %featuresInfo;
+      text-align: left;
+
+      h3 {
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  .ProductSpecBtn {
+    @include flex;
+    flex-direction: column;
+
+      button {
+        width: 70%;
+        border-top: 1px solid rgb(224,224,224);
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+        outline: none;
+        padding: 20px 0;
+        text-align: left;
+        text-decoration: none;
+        background-color: #fafafa;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+    
+
+  }
+  
+}

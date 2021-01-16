@@ -3,7 +3,8 @@ import React, { Component } from "react";
 // import ProductDetailNavbar from "./Components/ProductDetailNavbar";
 import Summary from "./Components/Summary/Summary";
 import Inspirations from "./Components/Inspirations";
-import Features from "./Components/Features";
+import Features from "./Components/Features/Features";
+import ProductSpec from "./Components/ProductSpec";
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
@@ -47,6 +48,7 @@ class ProductDetail extends Component {
         })}
         <Inspirations />
         <Features />
+        <ProductSpec />
       </>
     );
   }

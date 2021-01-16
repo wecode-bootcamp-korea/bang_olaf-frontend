@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Features.scss";
+import FeaturesGallery from "./FeaturesGallery";
+import "../Features/Features.scss";
 
 class Features extends Component {
   constructor() {
@@ -84,6 +85,23 @@ class Features extends Component {
               alt="featuresContainerImage--02"
               src="https://images.ctfassets.net/8cd2csgvqd3m/16Xx9fuMIdhGwVHsG3j2m1/abb8d37d4f1ac3a4d8ce0867fc294e7c/Alexa_2.jpg?q=90&fm=webp&w=431&h=431&fit=fill"
             ></img>
+          </div>
+        </article>
+        <FeaturesGallery />
+
+        <article className="featuresResponsiveGroup">
+          <div className="featuresResponsiveImage">
+            <img
+              alt="featuresResponsiveImg"
+              src="https://images.ctfassets.net/8cd2csgvqd3m/6tD1ZXlvw5KYNJiMYcEC8v/b95ba406e5bed8b2b140be0438efd3b8/a1_2_stereo.png?q=90&fm=webp&w=1024&h=576&fit=pad"
+            ></img>
+          </div>
+          <div className="featuresResponsiveInfo">
+            <h3>BEOSOUND A1 2ND GEN</h3>
+            <p>
+              Beosound A1 2nd Gen 한 대를 추가하여 스테레오 사운드로 감상하세요.
+            </p>
+            <span>US$250</span>
           </div>
         </article>
       </section>

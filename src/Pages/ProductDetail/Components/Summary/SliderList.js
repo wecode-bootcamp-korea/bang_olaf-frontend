@@ -6,7 +6,7 @@ export default class SliderList extends Component {
       <div>
         <img
           alt="sliderImg"
-          src="https://www.react-reveal.com/assets/striped-cat-small.jpg"
+          src="https://pbs.twimg.com/profile_images/1109389733912666112/XX55fTPf.jpg"
         ></img>
       </div>
     );
