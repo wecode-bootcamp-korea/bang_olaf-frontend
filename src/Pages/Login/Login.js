@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
 import "./Login.scss";
 
@@ -27,12 +28,20 @@ class Login extends Component {
   };
 
   secondCondition = () => {
-    const { email, pw } = this.state;
-    const emailCondition = email.includes("@");
+    const {
+      email,
+      emailhasValue,
+      emailCondition,
+      pw,
+      pwhasValue,
+      matchedValue,
+      validUser,
+    } = this.state;
+    const checkemailCondition = email.includes("@");
 
     if (email) {
       this.setState({
-        emailCondition,
+        emailCondition: checkemailCondition,
         emailhasValue: true,
       });
     } else if (!email) {
@@ -55,13 +64,34 @@ class Login extends Component {
 
   handleLoginBtn = (e) => {
     const { email, pw, emailhasValue, emailCondition, pwhasValue } = this.state;
-    const matchedValue = emailhasValue && emailCondition && pwhasValue;
-    this.setState({
-      emailhasValue,
-      emailCondition,
-      pwhasValue,
-      matchedValue,
-    });
+    const matchedValue = email && pw && emailCondition;
+    // this.setState({
+    //   emailhasValue,
+    //   emailCondition,
+    //   pwhasValue,
+    //   matchedValue,
+    // });
+
+    if (email) {
+      this.setState({
+        emailCondition,
+        emailhasValue: true,
+      });
+    } else if (!email) {
+      this.setState({
+        emailhasValue: false,
+      });
+    }
+
+    if (pw) {
+      this.setState({
+        pwhasValue: true,
+      });
+    } else if (!pw) {
+      this.setState({
+        pwhasValue: false,
+      });
+    }
 
     if (!matchedValue) {
       console.log("!matchedValue 실행");
@@ -103,42 +133,59 @@ class Login extends Component {
       <div className="login">
         <main>
           <section className="loginTitle">
-            <p>로그인</p>
-            <h1>Bang & Olaf 계정</h1>
-          </section>
-          <section className="inputBundle">
-            <div className="emailBundle">
-              {!validUser && <p>* 잘못된 로그인 시도</p>}
-              <p>이메일</p>
-              <input
-                className="email loginInput"
-                type="text"
-                name="email"
-                onChange={this.handleIdPwInput}
-              />
-              {!emailCondition && <div>유효한 이메일 형식이 아닙니다.</div>}
-              {!emailhasValue && <div>이메일은 필수 입력 항목입니다.</div>}
+            <div className="loginSmallLogo">로그인</div>
+            <div className="loginBigLogo">
+              <span>Bang & Olaf</span> 계정
             </div>
-            <div className="pwBundle">
-              <p>비밀번호</p>
-              <input
-                className="pw loginInput"
-                type="password"
-                name="pw"
-                onChange={this.handleIdPwInput}
-              />
-              {!pwhasValue && <div>비밀번호은 필수 입력 항목입니다.</div>}
-            </div>
-            <input type="checkbox" name="checkbox" />
-            <span>사용자 이름 저장</span>
           </section>
-          <section className="loginNewaccountPasswordBundle">
-            <button className="loginBtn" onClick={this.handleLoginBtn}>
-              로그인
-            </button>
-            <p>회원가입</p>
-            <p>비밀번호 찾기</p>
-          </section>
+          <article>
+            <section className="inputBundle">
+              <div className="emailBundle">
+                {!validUser && (
+                  <p className="warningMsg">* 잘못된 로그인 시도</p>
+                )}
+                <p>이메일</p>
+                <input
+                  className="email loginInput"
+                  type="text"
+                  name="email"
+                  onChange={this.handleIdPwInput}
+                />
+                {!emailCondition && (
+                  <p className="warningMsg">유효한 이메일 형식이 아닙니다.</p>
+                )}
+                {!emailhasValue && (
+                  <p className="warningMsg">이메일은 필수 입력 항목입니다.</p>
+                )}
+              </div>
+              <div className="pwBundle">
+                <p>비밀번호</p>
+                <input
+                  className="pw loginInput"
+                  type="password"
+                  name="pw"
+                  onChange={this.handleIdPwInput}
+                />
+                {!pwhasValue && (
+                  <p className="warningMsg">비밀번호은 필수 입력 항목입니다.</p>
+                )}
+              </div>
+              <div className="checkboxBundle">
+                <input type="checkbox" name="checkbox" id="saveNameCheckbox" />
+                <label for="saveNameCheckbox"></label>
+                <span>사용자 이름 저장</span>
+              </div>
+            </section>
+            <section className="loginNewaccountPasswordBundle">
+              <button className="loginBtn" onClick={this.handleLoginBtn}>
+                로그인
+              </button>
+              <Link to="/account">
+                <p>회원가입</p>
+              </Link>
+              <p>비밀번호 찾기</p>
+            </section>
+          </article>
         </main>
         <aside className="otherwayLoginBundle">
           <p>다른 서비스로 로그인</p>
@@ -147,11 +194,26 @@ class Login extends Component {
           <button className="naverBtn">NAVER</button>
         </aside>
         <footer>
-          <span>KOREAN</span>
+          <select name="languageTranslation" id="languageSelect">
+            <option value="">ENGLISH</option>
+            <option value="">DANISH</option>
+            <option value="">GERMAN</option>
+            <option value="">SPANISH</option>
+            <option value="">FRENCH</option>
+            <option value="">ITALIAN</option>
+            <option value="">JAPANESE</option>
+            <option value="">KOREAN</option>
+            <option value="">DUTCH</option>
+            <option value="">RUSSIAN</option>
+            <option value="">CHINESE</option>
+            <option value="">CHINESE TRADITIONAL</option>
+          </select>
           <div>
-            <a>@ 2021 Bang & Olaf</a>
-            <a>개인정보 보호정책</a>
-            <a>서비스 약관</a>
+            <Link to="/">
+              <span>@ 2021 Bang & Olaf</span>
+            </Link>
+            <span>개인정보 보호정책</span>
+            <span>서비스 약관</span>
           </div>
         </footer>
       </div>

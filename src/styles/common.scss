@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
 $black: #000;
 $gray: #f3f3f3;
 $white: #fff;
@@ -8,3 +11,6 @@ $white: #fff;
   justify-content: $justify;
   align-items: $align;
 }
+
+$loginFontFamily: "Montserrat", sans-serif;
+$loginFontFamilyBold: "Montserrat", sans-serif;
