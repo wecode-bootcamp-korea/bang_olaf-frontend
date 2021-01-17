@@ -8,16 +8,11 @@
   flex-direction: column;
   font-family: $logonAccountCommonFontFamily;
 
-  nav {
-    border: 1px solid black;
-    height: 95px;
-  }
-
   main {
     border: 1px solid red;
     width: 476px;
     height: 877px;
-    margin-bottom: 60px;
+    margin: 95px 0px 60px;
 
     .accountTitle {
       border: 1px solid greenyellow;
@@ -48,8 +43,8 @@
             width: 100%;
             margin: 6px 0px 2px;
             padding: 1px 2px 7px 0px;
-            //border: 0px;
-            border: 1px solid #737373;
+            border: 0px;
+            //border: 1px solid #737373;
             border-bottom: 1px solid #737373;
             font-size: 18px;
 
@@ -136,17 +131,23 @@
         width: 240px;
         height: 40px;
         margin: 30px auto auto auto;
+        transition-property: background-color;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
         background-color: black;
         color: white;
         font-size: 14px;
 
         &:hover {
-          background-color: #737373;
+          background-color: #464646;
         }
       }
 
-      div {
+      p {
         margin: 26px auto auto auto;
+        text-decoration: underline;
+        text-underline-position: under;
+        text-align: center;
         font-size: 16px;
         color: #737373;
       }
@@ -157,14 +158,34 @@
     border: 1px solid orange;
     height: 38px;
     width: 100%;
+    position: relative;
     padding: 0 14px;
-    @include flex(space-around, _);
+    margin-top: 50px;
+
+    select {
+      position: absolute;
+      left: 14px;
+      border: 0px;
+      font-family: $loginFontFamily;
+      &:focus {
+        outline: none;
+        border-bottom: 3px solid #1087dd;
+      }
+    }
+
     div {
+      position: absolute;
+      right: 14px;
       padding-left: 0px;
-      a {
+      span {
         margin-right: 10px;
+        font-family: $loginFontFamily;
         font-size: 11px;
         color: #757575;
+
+        &:hover {
+          color: #333333;
+        }
       }
     }
   }

@@ -284,7 +284,6 @@ class Account extends React.Component {
     console.log(this.state);
     return (
       <div className="account">
-        <nav>네브바 자리</nav>
         <main>
           <section className="accountTitle">새 계정 만들기</section>
           <section className="inputCheckboxBundle">
@@ -398,17 +397,32 @@ class Account extends React.Component {
             <button className="registrationBtn" onClick={this.handleBtn}>
               등록
             </button>
-            <div>페이지의 로그로 이동</div>
+            <Link to="/">
+              <p>페이지의 로그로 이동</p>
+            </Link>
           </section>
         </main>
         <footer>
-          <span>KOREAN</span>
+          <select name="languageTranslation" id="languageSelect">
+            <option value="">ENGLISH</option>
+            <option value="">DANISH</option>
+            <option value="">GERMAN</option>
+            <option value="">SPANISH</option>
+            <option value="">FRENCH</option>
+            <option value="">ITALIAN</option>
+            <option value="">JAPANESE</option>
+            <option value="">KOREAN</option>
+            <option value="">DUTCH</option>
+            <option value="">RUSSIAN</option>
+            <option value="">CHINESE</option>
+            <option value="">CHINESE TRADITIONAL</option>
+          </select>
           <div>
             <Link to="/">
-              <a>@ 2021 Bang & Olaf</a>
+              <span>@ 2021 Bang & Olaf</span>
             </Link>
-            <a>개인정보 보호정책</a>
-            <a>서비스 약관</a>
+            <span>개인정보 보호정책</span>
+            <span>서비스 약관</span>
           </div>
         </footer>
       </div>
