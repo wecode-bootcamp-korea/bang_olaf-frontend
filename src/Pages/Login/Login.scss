@@ -124,7 +124,7 @@
           height: 40px;
           margin: 30px auto 15px;
           transition-property: background-color;
-          transition-duration: 0.5s;
+          transition-duration: 0.3s;
           transition-timing-function: linear;
           background-color: black;
           color: white;
@@ -132,7 +132,7 @@
 
           &:hover {
             cursor: pointer;
-            background-color: #737373;
+            background-color: #464646;
           }
         }
 
@@ -160,6 +160,9 @@
       margin: 5px;
       border: 2px solid black;
       background-color: white;
+      transition-property: background-color;
+      transition-duration: 0.3s;
+      transition-timing-function: linear;
       font-family: $loginFontFamilyBold;
       font-size: 14px;
       font-weight: 600;
@@ -168,7 +171,20 @@
       &:hover {
         color: white;
         background-color: black;
+        cursor: pointer;
       }
+    }
+
+    .facebookIcons {
+      color: #4267b2;
+    }
+
+    .appleIcons {
+      color: #b3b3b3;
+    }
+
+    .windowsIcons {
+      color: #00adef;
     }
   }
 

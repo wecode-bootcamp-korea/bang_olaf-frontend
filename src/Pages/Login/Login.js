@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "react-icons-kit";
+import { facebookOfficial } from "react-icons-kit/fa/facebookOfficial";
+import { apple } from "react-icons-kit/fa/apple";
+import { windows } from "react-icons-kit/fa/windows";
+import { earth } from "react-icons-kit/icomoon/earth";
 import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
 import "./Login.scss";
 
@@ -39,26 +44,26 @@ class Login extends Component {
     } = this.state;
     const checkemailCondition = email.includes("@");
 
-    if (email) {
-      this.setState({
-        emailCondition: checkemailCondition,
-        emailhasValue: true,
-      });
-    } else if (!email) {
-      this.setState({
-        emailCondition: true,
-        emailhasValue: false,
-      });
+    {
+      email
+        ? this.setState({
+            emailCondition: checkemailCondition,
+            emailhasValue: true,
+          })
+        : this.setState({
+            emailCondition: true,
+            emailhasValue: false,
+          });
     }
 
-    if (pw) {
-      this.setState({
-        pwhasValue: true,
-      });
-    } else if (!pw) {
-      this.setState({
-        pwhasValue: false,
-      });
+    {
+      pw
+        ? this.setState({
+            pwhasValue: true,
+          })
+        : this.setState({
+            pwhasValue: false,
+          });
     }
   };
 
@@ -127,7 +132,15 @@ class Login extends Component {
   };
 
   render() {
-    const { emailhasValue, emailCondition, pwhasValue, validUser } = this.state;
+    const {
+      email,
+      emailhasValue,
+      emailCondition,
+      pw,
+      pwhasValue,
+      matchedValue,
+      validUser,
+    } = this.state;
     console.log(this.state);
     return (
       <div className="login">
@@ -151,7 +164,7 @@ class Login extends Component {
                   name="email"
                   onChange={this.handleIdPwInput}
                 />
-                {!emailCondition && (
+                {email && !emailCondition && (
                   <p className="warningMsg">유효한 이메일 형식이 아닙니다.</p>
                 )}
                 {!emailhasValue && (
@@ -189,9 +202,18 @@ class Login extends Component {
         </main>
         <aside className="otherwayLoginBundle">
           <p>다른 서비스로 로그인</p>
-          <button className="facebookBtn">FACEBOOK</button>
-          <button className="googleBtn">GOOGLE</button>
-          <button className="naverBtn">NAVER</button>
+          <button className="facebookBtn">
+            <Icon className="facebookIcons" icon={facebookOfficial} size={20} />
+            FACEBOOK
+          </button>
+          <button className="appleBtn">
+            <Icon className="appleIcons" icon={apple} size={20} />
+            APPLE
+          </button>
+          <button className="windowsBtn">
+            <Icon className="windowsIcons" icon={windows} size={20} />
+            WINDOWS
+          </button>
         </aside>
         <footer>
           <select name="languageTranslation" id="languageSelect">
