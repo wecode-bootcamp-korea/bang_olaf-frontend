@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 // import CommonNavbar from "../../Components/Navbar/CommonNavbar";
-// import ProductDetailNavbar from "./Components/ProductDetailNavbar";
+import ProductDetailNavbar from "./Components/ProductDetailNavbar";
 import Summary from "./Components/Summary/Summary";
-import Inspirations from "./Components/Inspirations";
+import Inspirations from "./Components/Inspirations/Inspirations";
 import Features from "./Components/Features/Features";
-import ProductSpec from "./Components/ProductSpec";
+import ProductSpec from "./Components/ProductSpec/ProductSpec";
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
   constructor() {
     super();
     this.state = {
-      baseList: [],
+      Datas: [],
     };
   }
 
@@ -23,7 +23,7 @@ class ProductDetail extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          baseList: data,
+          Datas: data,
         });
       });
   }
@@ -31,22 +31,31 @@ class ProductDetail extends Component {
   render() {
     return (
       <>
-        {/* <CommonNavbar />
-        <ProductDetailNavbar /> */}
-        {this.state.baseList.map((item) => {
+        {/* <CommonNavbar /> */}
+        <ProductDetailNavbar />
+        {this.state.Datas.map((item) => {
           return (
-            <Summary
-              key={item.productsData.id}
-              imageUrl={item.productsData.imageUrl}
-              title={item.productsData.title}
-              detailTitle={item.productsData.detailTitle}
-              description={item.productsData.description}
-              descriptionEnglish={item.productsData.descriptionEnglish}
-              price={item.productsData.price}
-            />
+            <>
+              <Summary
+                key={item.productsData.id}
+                imageUrl={item.productsData.imageUrl}
+                title={item.productsData.title}
+                detailTitle={item.productsData.detailTitle}
+                description={item.productsData.description}
+                descriptionEnglish={item.productsData.descriptionEnglish}
+                price={item.productsData.price}
+              />
+              <Inspirations
+                key={item.inspirations.id}
+                title={item.inspirations.title}
+                description={item.inspirations.description}
+                video={item.inspirations.video}
+                slide_image={item.inspirations.slide_image}
+              />
+            </>
           );
         })}
-        <Inspirations />
+
         <Features />
         <ProductSpec />
       </>

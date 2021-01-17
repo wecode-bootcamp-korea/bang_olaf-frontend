@@ -10,3 +10,20 @@ $fontColor : #727373;
   justify-content: $justify;
   align-items: $align;
 }
+
+%featuresInfo {
+  h3 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $fontColor;
+  }
+}

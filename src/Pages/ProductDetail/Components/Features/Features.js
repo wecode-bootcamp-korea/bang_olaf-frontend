@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import FeaturesGallery from "./FeaturesGallery";
-import "../Features/Features.scss";
 
 class Features extends Component {
   constructor() {
@@ -10,7 +9,7 @@ class Features extends Component {
 
   render() {
     return (
-      <section className="features">
+      <section className="features" id="특장점">
         <article className="featuresGroup">
           <div className="boxTop">
             <div className="featuresbox01">

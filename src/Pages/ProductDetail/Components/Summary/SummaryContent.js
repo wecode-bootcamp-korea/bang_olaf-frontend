@@ -19,19 +19,19 @@ class SummaryContent extends Component {
 
         <ul>
           <li>
-            <button>1</button>
+            <div className="colorBorder">
+              <div className="colorContent">1</div>
+            </div>
           </li>
           <li>
-            <button>2</button>
+            <div className="colorBorder">
+              <div className="colorContent">2</div>
+            </div>
           </li>
           <li>
-            <button>3</button>
-          </li>
-          <li>
-            <button>4</button>
-          </li>
-          <li>
-            <button>5</button>
+            <div className="colorBorder">
+              <div className="colorContent">3</div>
+            </div>
           </li>
         </ul>
 

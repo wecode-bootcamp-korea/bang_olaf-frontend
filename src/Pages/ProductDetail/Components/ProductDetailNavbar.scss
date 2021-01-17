@@ -9,6 +9,7 @@
     width: 100%;
     border-bottom: 1px solid $gray;
     z-index: 1;
+    cursor: pointer;
 
     ul { 
       @include flex(space-around,_);

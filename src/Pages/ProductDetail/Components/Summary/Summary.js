@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SummaryAttribute from "./SummaryAttribute";
 import SimpleSlider from "./SimpleSlider";
 import SummaryContent from "./SummaryContent";
-import "./Summary.scss";
+import "../Summary/Summary.scss";
 
 class Summary extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class Summary extends Component {
     } = this.props;
 
     return (
-      <main className="summary">
+      <main className="summary" id="개요">
         <div className="summaryGroup">
           <SimpleSlider />
           <SummaryContent

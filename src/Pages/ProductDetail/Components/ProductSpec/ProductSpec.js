@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import "./ProductSpec.scss";
 
 class ProductSpec extends Component {
   render() {
     return (
       <article className="ProductSpec">
-        <div className="ProductSpecGroup">
+        <div className="ProductSpecGroup" id="기술사양">
           <div className="ProductSpecImg">
             <img
-              alt=""
+              alt="SpecImg"
               src="https://images.ctfassets.net/8cd2csgvqd3m/43kJ23Z66SjSQbPkTPxWA9/3edb3b7a100fa80eb42f53f5ed050b05/a1inthebox.png?q=90&fm=webp&w=720"
             />
           </div>

@@ -1,30 +1,14 @@
-@import "../../../styles/common.scss";
-
-%featuresInfo {
-  h3 {
-    font-size: 14px;
-    padding-bottom: 5px;
-  }
-
-  h2 {
-    font-size: 24px;
-    padding-bottom: 30px;
-  }
-
-  p {
-    font-size: 16px;
-    color: $fontColor;
-  }
-}
+@import "../../../../styles/common.scss";
 
 .ProductSpec {
   background-color: #fafafa;
   margin: 0 auto;
 
   .ProductSpecGroup {
-    @include flex(center);
+    @include flex(center,center);
     text-align: center;
     margin: 0 auto;
+    padding-top: 10%;
 
     .ProductSpecImg {
       img {
@@ -50,6 +34,7 @@
   .ProductSpecBtn {
     @include flex;
     flex-direction: column;
+    padding-top: 5%;
 
       button {
         width: 70%;
@@ -66,9 +51,6 @@
         font-size: 14px;
         cursor: pointer;
       }
-
-    
-
   }
   
 }
