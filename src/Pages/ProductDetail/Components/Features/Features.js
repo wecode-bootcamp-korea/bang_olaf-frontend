@@ -3,6 +3,12 @@ import FeaturesGallery from "./FeaturesGallery";
 import FeaturesInfo from "./FeaturesInfo";
 
 class Features extends Component {
+  constructor() {
+    super();
+    this.state = {
+      commentList: [],
+    };
+  }
   render() {
     const {
       id,

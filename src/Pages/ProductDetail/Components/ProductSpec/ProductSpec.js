@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class ProductSpec extends Component {
   render() {
+    const btnMenu = ["사운드", "디자인", "전원", "연결"];
     return (
       <article className="ProductSpec">
         <div className="ProductSpecGroup" id="기술사양">
@@ -20,18 +21,13 @@ class ProductSpec extends Component {
         </div>
 
         <div className="ProductSpecBtn">
-          <button>
-            <h3>사운드</h3>
-          </button>
-          <button>
-            <h3>디자인</h3>
-          </button>
-          <button>
-            <h3>전원</h3>
-          </button>
-          <button>
-            <h3>연결</h3>
-          </button>
+          {btnMenu.map((btn) => {
+            return (
+              <button>
+                <h3>{btn}</h3>
+              </button>
+            );
+          })}
         </div>
       </article>
     );

@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class SummaryAttribute extends Component {
+  constructor() {
+    super();
+    this.state = {
+      attributeList: [],
+    };
+  }
   render() {
     const AttributeMenu = ["무료배달", "30일 환불 보장", "선물 포장 가능"];
     const images = [
@@ -12,18 +18,14 @@ class SummaryAttribute extends Component {
     return (
       <div className="summaryAttribute">
         <ul>
-          <li>
-            <img src={images[0]}></img>
-            <Link to="#">{AttributeMenu[0]}</Link>
-          </li>
-          <li>
-            <img src={images[1]}></img>
-            <Link to="#">{AttributeMenu[1]}</Link>
-          </li>
-          <li>
-            <img src={images[2]}></img>
-            <Link to="#">{AttributeMenu[2]}</Link>
-          </li>
+          {AttributeMenu.map((word, index) => {
+            return (
+              <li>
+                <img src={images[index]}></img>
+                <Link to="#">{word}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
