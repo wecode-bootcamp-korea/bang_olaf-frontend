@@ -8,134 +8,146 @@ class Account extends React.Component {
     super();
     this.state = {
       firstname: "",
-      firstnamehasValue: true,
       lastname: "",
-      lastnamehasValue: true,
       email: "",
-      emailCondition: true,
-      emailhasValue: true,
       password: "",
-      pwLengthCondition: true,
-      passwordhasValue: true,
       checkPw: "",
-      checkpwCondition: true,
-      checkPwhasValue: true,
       adagreement: false,
       serviceagreement: false,
-      serviceagreementhasValue: true,
     };
   }
 
   // 인풋의 변화연동
-  handleInput = (e) => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+  firstnameInput = (e) => {
+    const firstnameValue = e.target.value;
+    this.setState({ firstname: firstnameValue });
+  };
+
+  lastnameInput = (e) => {
+    const lastnameValue = e.target.value;
+    this.setState({ lastname: lastnameValue });
+  };
+
+  emailInput = (e) => {
+    const emailValue = e.target.value;
+    this.setState({ email: emailValue });
+  };
+
+  passwordInput = (e) => {
+    const passwordValue = e.target.value;
+    this.setState({ password: passwordValue });
+  };
+
+  checkPwInput = (e) => {
+    const checkPwValue = e.target.value;
+    this.setState({ checkPw: checkPwValue });
+  };
+
+  adagreementInput = (e) => {
+    const adagreementValue = e.target.checked;
+    this.setState({ adagreement: adagreementValue });
+  };
+
+  seviceagreementInput = (e) => {
+    const serviceagreementValue = e.target.checked;
+    this.setState({ seviceagreement: serviceagreementValue });
   };
 
   // 체크박스의 변화연동
-  handleCheckbox = (e) => {
-    const { name, checked } = e.target;
-    this.setState(
-      {
-        [name]: checked,
-      },
-      () => this.secondCondition(),
-    );
-  };
+  // handleCheckbox = (e) => {
+  //   const { name, checked } = e.target;
+  //   this.setState(
+  //     {
+  //       [name]: checked,
+  //     },
+  //     () => this.secondCondition(),
+  //   );
+  // };
 
   // onChange msg
   secondCondition = (e) => {
-    const {
-      firstname,
-      firstnamehasValue,
-      lastname,
-      lastnamehasValue,
-      email,
-      emailCondition,
-      emailhasValue,
-      password,
-      pwLengthCondition,
-      passwordhasValue,
-      checkPw,
-      checkpwCondition,
-      checkPwhasValue,
-      adagreement,
-      serviceagreement,
-      isTrueserviceagreement,
-    } = this.state;
-
-    const checkemailCondition = email.includes("@"); // 이메일 @ 확인
-    const checkpwLengthCondition =
-      password.length >= 10 && password.length <= 30; // 비번 길이
-    const checkpwConditionAll = password === checkPw; // 비번확인 모든 조건
-
-    if (firstname) {
-      this.setState({
-        firstnamehasValue: true,
-      });
-    } else if (!firstname) {
-      this.setState({
-        firstnamehasValue: false,
-      });
-    }
-
-    if (lastname) {
-      this.setState({
-        lastnamehasValue: true,
-      });
-    } else if (!lastname) {
-      this.setState({
-        lastnamehasValue: false,
-      });
-    }
-
-    if (email) {
-      this.setState({
-        emailCondition: checkemailCondition,
-        emailhasValue: true,
-      });
-    } else if (!email) {
-      this.setState({
-        emailCondition: true,
-        emailhasValue: false,
-      });
-    }
-
-    if (checkPw && password) {
-      this.setState({
-        checkpwCondition: checkpwConditionAll,
-        checkPwhasValue: true,
-      });
-    } else if (!checkPw && password) {
-      this.setState({
-        checkpwCondition: true,
-        checkPwhasValue: false,
-      });
-    }
-
-    if (password) {
-      this.setState({
-        pwLengthCondition: checkpwLengthCondition,
-        passwordhasValue: true,
-      });
-    } else if (!password) {
-      this.setState({
-        pwLengthCondition: true,
-        passwordhasValue: false,
-      });
-    }
-
-    if (serviceagreement) {
-      this.setState({
-        isTrueserviceagreement: true,
-      });
-    } else if (!serviceagreement) {
-      this.setState({
-        isTrueserviceagreement: false,
-      });
-    }
+    // const {
+    //   firstname,
+    //   firstnamehasValue,
+    //   lastname,
+    //   lastnamehasValue,
+    //   email,
+    //   emailCondition,
+    //   emailhasValue,
+    //   password,
+    //   pwLengthCondition,
+    //   passwordhasValue,
+    //   checkPw,
+    //   checkpwCondition,
+    //   checkPwhasValue,
+    //   adagreement,
+    //   serviceagreement,
+    //   isTrueserviceagreement,
+    // } = this.state;
+    // const checkemailCondition = email.includes("@"); // 이메일 @ 확인
+    // const checkpwLengthCondition =
+    //   password.length >= 10 && password.length <= 30; // 비번 길이
+    // const checkpwConditionAll = password === checkPw; // 비번확인 모든 조건
+    // if (firstname) {
+    //   this.setState({
+    //     firstnamehasValue: true,
+    //   });
+    // } else if (!firstname) {
+    //   this.setState({
+    //     firstnamehasValue: false,
+    //   });
+    // }
+    // if (lastname) {
+    //   this.setState({
+    //     lastnamehasValue: true,
+    //   });
+    // } else if (!lastname) {
+    //   this.setState({
+    //     lastnamehasValue: false,
+    //   });
+    // }
+    // if (email) {
+    //   this.setState({
+    //     emailCondition: checkemailCondition,
+    //     emailhasValue: true,
+    //   });
+    // } else if (!email) {
+    //   this.setState({
+    //     emailCondition: true,
+    //     emailhasValue: false,
+    //   });
+    // }
+    // if (checkPw && password) {
+    //   this.setState({
+    //     checkpwCondition: checkpwConditionAll,
+    //     checkPwhasValue: true,
+    //   });
+    // } else if (!checkPw && password) {
+    //   this.setState({
+    //     checkpwCondition: true,
+    //     checkPwhasValue: false,
+    //   });
+    // }
+    // if (password) {
+    //   this.setState({
+    //     pwLengthCondition: checkpwLengthCondition,
+    //     passwordhasValue: true,
+    //   });
+    // } else if (!password) {
+    //   this.setState({
+    //     pwLengthCondition: true,
+    //     passwordhasValue: false,
+    //   });
+    // }
+    // if (serviceagreement) {
+    //   this.setState({
+    //     isTrueserviceagreement: true,
+    //   });
+    // } else if (!serviceagreement) {
+    //   this.setState({
+    //     isTrueserviceagreement: false,
+    //   });
+    // }
   };
 
   // 버튼 클릭시 실행되는 메소드
@@ -278,7 +290,7 @@ class Account extends React.Component {
       serviceagreementhasValue,
     } = this.state;
 
-    console.log(this.state);
+    console.log({ adagreement });
     return (
       <div className="account">
         <main>
@@ -291,7 +303,7 @@ class Account extends React.Component {
                   type="text"
                   name="firstname"
                   hasvalue="firstnamehasValue"
-                  onChange={this.handleInput}
+                  onChange={this.firstnameInput}
                 />
                 {!firstnamehasValue && (
                   <p className="warningMsg">이름은 필수 입력 항목입니다.</p>
@@ -303,7 +315,7 @@ class Account extends React.Component {
                   type="text"
                   name="lastname"
                   hasvalue="lastnamehasValue"
-                  onChange={this.handleInput}
+                  onChange={this.lastnameInput}
                 />
                 {!lastnamehasValue && (
                   <p className="warningMsg">성은 필수 입력 항목입니다.</p>
@@ -311,7 +323,7 @@ class Account extends React.Component {
               </div>
               <div className="email accountTextInput">
                 <p>이메일</p>
-                <input type="text" name="email" onChange={this.handleInput} />
+                <input type="text" name="email" onChange={this.emailInput} />
                 {!emailhasValue && (
                   <p className="warningMsg">이메일은 필수 입력 항목입니다.</p>
                 )}
@@ -325,7 +337,7 @@ class Account extends React.Component {
                   type="password"
                   name="password"
                   hasvalue="passwordhasValue"
-                  onChange={this.handleInput}
+                  onChange={this.passwordInput}
                 />
                 {!passwordhasValue && (
                   <p className="warningMsg">비밀번호은 필수 입력 항목입니다.</p>
@@ -342,7 +354,7 @@ class Account extends React.Component {
                   type="password"
                   name="checkPw"
                   hasvalue="checkPwhasValue"
-                  onChange={this.handleInput}
+                  onChange={this.checkPwInput}
                 />
                 {!checkPwhasValue && (
                   <p className="warningMsg">비밀번호는 필수 입력 항목입니다.</p>
@@ -360,7 +372,7 @@ class Account extends React.Component {
                     type="checkbox"
                     name="adagreement"
                     hasvalue="adagreementhasValue"
-                    onClick={this.handleCheckbox}
+                    onClick={this.adagreementInput}
                   />
                   <label for="firstCheckbox"></label>
                   <span className="agreement adtitle">
@@ -382,7 +394,7 @@ class Account extends React.Component {
                   type="checkbox"
                   name="serviceagreement"
                   hasvalue="serviceagreementhasValue"
-                  onClick={this.handleCheckbox}
+                  onClick={this.seviceagreementInput}
                 />
                 <label for="secondCheckbox"></label>
                 <span className="agreement service">
