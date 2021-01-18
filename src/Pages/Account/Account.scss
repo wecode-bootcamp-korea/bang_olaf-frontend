@@ -37,6 +37,27 @@
         }
         .accountTextInput {
           height: 79px;
+          .checkemail {
+            p {
+              display: none;
+            }
+            &.success {
+              p {
+                display: block;
+              }
+            }
+          }
+
+          // .checkpassword {
+          //   p {
+          //     display: none;
+          //   }
+          //   &.success {
+          //     p {
+          //       display: block;
+          //     }
+          //   }
+          // }
 
           input {
             height: 32px;
