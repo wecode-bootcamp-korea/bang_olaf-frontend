@@ -70,6 +70,19 @@
             color: red;
           }
         }
+
+        .emailConditionDiv {
+          p {
+            display: none;
+          }
+
+          &.success {
+            p {
+              display: inline;
+            }
+          }
+        }
+
         .loginInput {
           height: 32px;
           width: 100%;

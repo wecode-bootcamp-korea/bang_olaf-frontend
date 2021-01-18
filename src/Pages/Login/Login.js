@@ -14,7 +14,6 @@ class Login extends Component {
     this.state = {
       email: "",
       emailhasValue: true,
-      emailCondition: true,
       pw: "",
       pwhasValue: true,
       matchedValue: true,
@@ -22,64 +21,41 @@ class Login extends Component {
     };
   }
 
-  handleIdPwInput = (e) => {
-    const { name, value } = e.target;
+  emailInput = (e) => {
+    const emailValue = e.target.value;
     this.setState(
       {
-        [name]: value,
+        email: emailValue,
       },
-      () => this.secondCondition(),
+      () =>
+        this.setState({
+          emailhasValue: this.state.email.length > 0 ? true : false,
+        }),
     );
   };
 
-  secondCondition = () => {
-    const {
-      email,
-      emailhasValue,
-      emailCondition,
-      pw,
-      pwhasValue,
-      matchedValue,
-      validUser,
-    } = this.state;
-    const checkemailCondition = email.includes("@");
-
-    {
-      email
-        ? this.setState({
-            emailCondition: checkemailCondition,
-            emailhasValue: true,
-          })
-        : this.setState({
-            emailCondition: true,
-            emailhasValue: false,
-          });
-    }
-
-    {
-      pw
-        ? this.setState({
-            pwhasValue: true,
-          })
-        : this.setState({
-            pwhasValue: false,
-          });
-    }
+  passwordInput = (e) => {
+    const passwordValue = e.target.value;
+    this.setState(
+      {
+        pw: passwordValue,
+      },
+      () =>
+        this.setState({
+          pwhasValue: this.state.pw.length > 0 ? true : false,
+        }),
+    );
   };
 
   handleLoginBtn = (e) => {
-    const { email, pw, emailhasValue, emailCondition, pwhasValue } = this.state;
-    const matchedValue = email && pw && emailCondition;
-    // this.setState({
-    //   emailhasValue,
-    //   emailCondition,
-    //   pwhasValue,
-    //   matchedValue,
-    // });
+    const { email, pw, emailhasValue, pwhasValue } = this.state;
+
+    const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+      email,
+    );
 
     if (email) {
       this.setState({
-        emailCondition,
         emailhasValue: true,
       });
     } else if (!email) {
@@ -98,8 +74,10 @@ class Login extends Component {
       });
     }
 
+    const matchedValue = emailcheck && pw;
+
     if (!matchedValue) {
-      console.log("!matchedValue 실행");
+      alert("!matchedValue 실행");
       return; // 리턴 하는 게 맞나?
     }
 
@@ -135,13 +113,17 @@ class Login extends Component {
     const {
       email,
       emailhasValue,
-      emailCondition,
       pw,
       pwhasValue,
       matchedValue,
       validUser,
     } = this.state;
     console.log(this.state);
+
+    const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+      email,
+    );
+
     return (
       <div className="login">
         <main>
@@ -158,15 +140,17 @@ class Login extends Component {
                   <p className="warningMsg">* 잘못된 로그인 시도</p>
                 )}
                 <p>이메일</p>
-                <input
-                  className="email loginInput"
-                  type="text"
-                  name="email"
-                  onChange={this.handleIdPwInput}
-                />
-                {email && !emailCondition && (
-                  <p className="warningMsg">유효한 이메일 형식이 아닙니다.</p>
-                )}
+                <div className={`emailConditionDiv ${email && "success"}`}>
+                  <input
+                    className="email loginInput"
+                    type="text"
+                    name="email"
+                    onChange={this.emailInput}
+                  />
+                  <p className="warningMsg">
+                    {emailcheck ? "" : "유효한 이메일 형식이 아닙니다."}
+                  </p>
+                </div>
                 {!emailhasValue && (
                   <p className="warningMsg">이메일은 필수 입력 항목입니다.</p>
                 )}
@@ -177,7 +161,7 @@ class Login extends Component {
                   className="pw loginInput"
                   type="password"
                   name="pw"
-                  onChange={this.handleIdPwInput}
+                  onChange={this.passwordInput}
                 />
                 {!pwhasValue && (
                   <p className="warningMsg">비밀번호은 필수 입력 항목입니다.</p>
