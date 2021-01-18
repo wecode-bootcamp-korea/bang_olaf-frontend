@@ -22,19 +22,16 @@ class Account extends React.Component {
       checkPwhasValue: true,
       adagreement: false,
       serviceagreement: false,
-      isTrueserviceagreement: true,
+      serviceagreementhasValue: true,
     };
   }
 
   // 인풋의 변화연동
   handleInput = (e) => {
     const { name, value } = e.target;
-    this.setState(
-      {
-        [name]: value,
-      },
-      () => this.secondCondition(),
-    );
+    this.setState({
+      [name]: value,
+    });
   };
 
   // 체크박스의 변화연동
@@ -49,7 +46,7 @@ class Account extends React.Component {
   };
 
   // onChange msg
-  secondCondition = () => {
+  secondCondition = (e) => {
     const {
       firstname,
       firstnamehasValue,
@@ -278,7 +275,7 @@ class Account extends React.Component {
       checkPwhasValue,
       adagreement,
       serviceagreement,
-      isTrueserviceagreement,
+      serviceagreementhasValue,
     } = this.state;
 
     console.log(this.state);
@@ -293,6 +290,7 @@ class Account extends React.Component {
                 <input
                   type="text"
                   name="firstname"
+                  hasvalue="firstnamehasValue"
                   onChange={this.handleInput}
                 />
                 {!firstnamehasValue && (
@@ -304,6 +302,7 @@ class Account extends React.Component {
                 <input
                   type="text"
                   name="lastname"
+                  hasvalue="lastnamehasValue"
                   onChange={this.handleInput}
                 />
                 {!lastnamehasValue && (
@@ -325,6 +324,7 @@ class Account extends React.Component {
                 <input
                   type="password"
                   name="password"
+                  hasvalue="passwordhasValue"
                   onChange={this.handleInput}
                 />
                 {!passwordhasValue && (
@@ -341,6 +341,7 @@ class Account extends React.Component {
                 <input
                   type="password"
                   name="checkPw"
+                  hasvalue="checkPwhasValue"
                   onChange={this.handleInput}
                 />
                 {!checkPwhasValue && (
@@ -354,26 +355,25 @@ class Account extends React.Component {
             <article className="checkboxBundle">
               <div className="firstCheckboxBundle">
                 <div className="agreement adInputTitleDiv">
-                  <div className="labelDiv">
-                    <input
-                      id="firstCheckbox"
-                      type="checkbox"
-                      name="adagreement"
-                      onClick={this.handleCheckbox}
-                    />
-                    <label for="firstCheckbox"></label>
-                  </div>
+                  <input
+                    id="firstCheckbox"
+                    type="checkbox"
+                    name="adagreement"
+                    hasvalue="adagreementhasValue"
+                    onClick={this.handleCheckbox}
+                  />
+                  <label for="firstCheckbox"></label>
                   <span className="agreement adtitle">
                     네, <span className="specificFont">Bang & Olaf</span> 통신을
                     받고 싶습니다
                   </span>
                 </div>
                 <div className="agreement adDescription">
-                  <span className="specificFont">Bang & Olaf</span> 및 당사
-                  제품과 관련된 뉴스, 특별 혜택, 이벤트 및 특별 경연 초대장 등의
-                  소식을 가장 먼저 받아보세요. 저희가 여러분께 소식을 가장 먼저
-                  전해드리기 위해 여러분의 연락처 정보를 수집해야 합니다. 당사
-                  통신에 대한 자세한 내용 읽기
+                  <span className="sameWithFooterfont">Bang & Olaf</span> 및
+                  당사 제품과 관련된 뉴스, 특별 혜택, 이벤트 및 특별 경연 초대장
+                  등의 소식을 가장 먼저 받아보세요. 저희가 여러분께 소식을 가장
+                  먼저 전해드리기 위해 여러분의 연락처 정보를 수집해야 합니다.
+                  당사 통신에 대한 자세한 내용 읽기
                 </div>
               </div>
               <div className="secondCheckboxBundle">
@@ -381,13 +381,14 @@ class Account extends React.Component {
                   id="secondCheckbox"
                   type="checkbox"
                   name="serviceagreement"
+                  hasvalue="serviceagreementhasValue"
                   onClick={this.handleCheckbox}
                 />
                 <label for="secondCheckbox"></label>
                 <span className="agreement service">
                   동의 서비스 약관 & 개인정보 보호정책
                 </span>
-                {!isTrueserviceagreement && (
+                {!serviceagreementhasValue && (
                   <p className="warningMsg">서비스 약관에 동의해야 합니다.</p>
                 )}
               </div>
