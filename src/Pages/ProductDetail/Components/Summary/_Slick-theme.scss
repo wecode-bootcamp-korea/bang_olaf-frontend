@@ -82,7 +82,8 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    left: -25px;
+    left: -50px;
+    
     [dir="rtl"] & {
         left: auto;
         right: -25px;
@@ -91,12 +92,13 @@ $slick-opacity-not-active: 0.25 !default;
         content: $slick-prev-character;
         [dir="rtl"] & {
             content: $slick-next-character;
+            
         }
     }
 }
 
 .slick-next {
-    right: -25px;
+    right: -15px;
     [dir="rtl"] & {
         left: -25px;
         right: auto;
@@ -113,6 +115,8 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-dotted.slick-slider {
     margin-bottom: 30px;
+
+
 }
 
 .slick-dots {
@@ -123,7 +127,8 @@ $slick-opacity-not-active: 0.25 !default;
     text-align: center;
     padding: 0;
     margin: 0;
-    width: 70%;
+    width: 90%;
+    
     li {
         position: relative;
         display: inline-block;

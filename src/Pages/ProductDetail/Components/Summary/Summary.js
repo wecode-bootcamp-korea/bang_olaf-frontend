@@ -23,7 +23,7 @@ class Summary extends Component {
     return (
       <main className="summary" id="개요">
         <div className="summaryGroup">
-          <SimpleSlider />
+          <SimpleSlider imageUrl={imageUrl} />
           <SummaryContent
             title={title}
             detailTitle={detailTitle}

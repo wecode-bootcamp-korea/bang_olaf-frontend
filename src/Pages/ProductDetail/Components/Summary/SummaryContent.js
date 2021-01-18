@@ -16,8 +16,18 @@ class SummaryContent extends Component {
         <div className="summaryDetailTitle">{detailTitle}</div>
         <p className="summaryDescription">{description}</p>
         <p className="summaryDescriptionReview">{descriptionEnglish}</p>
-
         <ul>
+          {/* {[
+            ...Array(3).map((_, idx) => {
+              return (
+                <li>
+                  <div className="colorBorder">
+                    <div className="colorContent">{idx + 1}</div>
+                  </div>
+                </li>
+              );
+            }),
+          ]} */}
           <li>
             <div className="colorBorder">
               <div className="colorContent">1</div>
@@ -26,11 +36,6 @@ class SummaryContent extends Component {
           <li>
             <div className="colorBorder">
               <div className="colorContent">2</div>
-            </div>
-          </li>
-          <li>
-            <div className="colorBorder">
-              <div className="colorContent">3</div>
             </div>
           </li>
         </ul>

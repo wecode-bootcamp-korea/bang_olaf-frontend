@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import SliderList from "./SliderList";
 import "../Summary/_Slick.scss";
 import "../Summary/_Slick-theme.scss";
 
@@ -15,13 +14,14 @@ export default class SimpleSlider extends Component {
       slidesToScroll: 1,
       initialSlide: 2,
     };
+    const { imageUrl } = this.props;
 
     return (
       <Slider {...settings} className="sliderImages">
-        <SliderList />
-        <SliderList />
-        <SliderList />
-        <SliderList />
+        {imageUrl &&
+          imageUrl.map((img, index) => {
+            return <img key={index} src={img} alt={`SliderImages--${index}`} />;
+          })}
       </Slider>
     );
   }

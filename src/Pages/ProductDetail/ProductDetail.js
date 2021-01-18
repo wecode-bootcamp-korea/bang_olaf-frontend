@@ -21,7 +21,6 @@ class ProductDetail extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         this.setState({
           Datas: data,
         });
@@ -29,15 +28,15 @@ class ProductDetail extends Component {
   }
 
   render() {
+    const { Datas } = this.state;
     return (
       <>
         {/* <CommonNavbar /> */}
         <ProductDetailNavbar />
-        {this.state.Datas.map((item) => {
+        {Datas.map((item, index) => {
           return (
-            <>
+            <div key={index}>
               <Summary
-                key={item.productsData.id}
                 imageUrl={item.productsData.imageUrl}
                 title={item.productsData.title}
                 detailTitle={item.productsData.detailTitle}
@@ -46,17 +45,22 @@ class ProductDetail extends Component {
                 price={item.productsData.price}
               />
               <Inspirations
-                key={item.inspirations.id}
                 title={item.inspirations.title}
                 description={item.inspirations.description}
                 video={item.inspirations.video}
                 slide_image={item.inspirations.slide_image}
               />
-            </>
+              <Features
+                title={item.features.title}
+                sub_title={item.features.sub_title}
+                description={item.features.description}
+                images={item.features.images}
+                gallery_images={item.features.gallery_images}
+              />
+            </div>
           );
         })}
 
-        <Features />
         <ProductSpec />
       </>
     );
