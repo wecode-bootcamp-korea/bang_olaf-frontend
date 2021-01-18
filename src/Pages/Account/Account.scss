@@ -48,16 +48,27 @@
             }
           }
 
-          // .checkpassword {
-          //   p {
-          //     display: none;
-          //   }
-          //   &.success {
-          //     p {
-          //       display: block;
-          //     }
-          //   }
-          // }
+          .checkpassword {
+            p {
+              display: none;
+            }
+            &.success {
+              p {
+                display: block;
+              }
+            }
+          }
+
+          .checkpwcheck {
+            p {
+              display: none;
+            }
+            &.success {
+              p {
+                display: block;
+              }
+            }
+          }
 
           input {
             height: 32px;

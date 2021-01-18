@@ -10,6 +10,7 @@ class Account extends React.Component {
       firstname: "",
       firstnamehasValue: true,
       lastname: "",
+      lastnamehasValue: true,
       email: "",
       password: "",
       passwordhasValue: true,
@@ -78,17 +79,11 @@ class Account extends React.Component {
 
   seviceagreementInput = (e) => {
     const serviceagreementValue = e.target.checked;
-    this.setState({ seviceagreement: serviceagreementValue }, () =>
+    this.setState({ serviceagreement: serviceagreementValue }, () =>
       this.setState({
-        serviceagreementhasValue: this.state.seviceagreement ? true : false,
+        serviceagreementhasValue: this.state.serviceagreement ? true : false,
       }),
     );
-  };
-
-    // const checkemailCondition = email.includes("@"); // 이메일 @ 확인
-    // const checkpwLengthCondition =
-    //   password.length >= 10 && password.length <= 30; // 비번 길이
-    // const checkpwConditionAll = password === checkPw; // 비번확인 모든 조건
   };
 
   // 버튼 클릭시 실행되는 메소드
@@ -110,81 +105,89 @@ class Account extends React.Component {
       checkPwhasValue,
       adagreement,
       serviceagreement,
-      isTrueserviceagreement,
+      serviceagreementhasValue,
     } = this.state;
 
-    // const allAcceptedAccountCondition =
-    //   firstnamehasValue &&
-    //   lastnamehasValue &&
-    //   emailCondition &&
-    //   pwLengthCondition &&
-    //   checkpwCondition &&
-    //   isTrueserviceagreement;
+    const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+      email,
+    );
+    const passwordcheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+      password,
+    );
 
-    // if (!firstname) {
-    //   this.setState({
-    //     firstnamehasValue: false,
-    //   });
-    // } else if (firstname) {
-    //   this.setState({
-    //     firstnamehasValue: true,
-    //   });
-    // }
+    const checkpwcheck = password === checkPw;
 
-    // if (!lastname) {
-    //   this.setState({
-    //     lastnamehasValue: false,
-    //   });
-    // } else if (lastname) {
-    //   this.setState({
-    //     lastnamehasValue: true,
-    //   });
-    // }
+    const allAcceptedAccountCondition =
+      firstname &&
+      lastname &&
+      emailcheck &&
+      passwordcheck &&
+      checkpwcheck &&
+      serviceagreement;
 
-    // if (!email) {
-    //   this.setState({
-    //     emailhasValue: false,
-    //   });
-    // } else if (email) {
-    //   this.setState({
-    //     emailhasValue: true,
-    //   });
-    // }
+    if (!allAcceptedAccountCondition) {
+      alert("실패");
 
-    // if (!password) {
-    //   this.setState({
-    //     passwordhasValue: false,
-    //   });
-    // } else if (password) {
-    //   this.setState({
-    //     passwordhasValue: true,
-    //   });
-    // }
+      if (!firstname) {
+        this.setState({
+          firstnamehasValue: false,
+        });
+      } else if (firstname) {
+        this.setState({
+          firstnamehasValue: true,
+        });
+      }
 
-    // if (!checkPw) {
-    //   this.setState({
-    //     checkPwhasValue: false,
-    //   });
-    // } else if (checkPw) {
-    //   this.setState({
-    //     checkPwhasValue: true,
-    //   });
-    // }
+      if (!lastname) {
+        this.setState({
+          lastnamehasValue: false,
+        });
+      } else if (lastname) {
+        this.setState({
+          lastnamehasValue: true,
+        });
+      }
 
-    // if (!serviceagreement) {
-    //   this.setState({
-    //     isTrueserviceagreement: false,
-    //   });
-    // } else if (serviceagreement) {
-    //   this.setState({
-    //     isTrueserviceagreement: true,
-    //   });
-    // }
+      if (!email) {
+        this.setState({
+          emailhasValue: false,
+        });
+      } else if (email) {
+        this.setState({
+          emailhasValue: true,
+        });
+      }
 
-    // // 모든 유효성 검사 체크
-    // if (!allAcceptedAccountCondition) {
-    //   return;
-    // }
+      if (!password) {
+        this.setState({
+          passwordhasValue: false,
+        });
+      } else if (password) {
+        this.setState({
+          passwordhasValue: true,
+        });
+      }
+
+      if (!checkPw) {
+        this.setState({
+          checkPwhasValue: false,
+        });
+      } else if (checkPw) {
+        this.setState({
+          checkPwhasValue: true,
+        });
+      }
+
+      if (!serviceagreement) {
+        this.setState({
+          serviceagreementhasValue: false,
+        });
+      } else if (serviceagreement) {
+        this.setState({
+          serviceagreementhasValue: true,
+        });
+      }
+    }
 
     fetch(SIGNUP_API, {
       method: "POST",
@@ -199,7 +202,7 @@ class Account extends React.Component {
     })
       .then((response) => response.json())
       .then((result) => {
-        alert(result.message);
+        alert({ result });
 
         //
         if (result.message === "SUCCESS") {
@@ -208,51 +211,7 @@ class Account extends React.Component {
           return;
         }
 
-        if (result.message === "이름을 입력해주세요") {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
-
-        if (result.message === "성을 입력해주세요") {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
-
-        if (result.message === "이메일를 입력해주세요") {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
-
-        if (result.message === "INVALID_EMAIL") {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
-
-        if (result.message === "비밀번호를 입력해주세요") {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
-
-        if (
-          result.message === "비밀번호는 최소 10자, 최대 1000자여야 합니다."
-        ) {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
-
-        if (
-          result.message === "비밀번호 및 확인 비밀번호가 일치하지 않습니다"
-        ) {
-          //localStorage.setItem("token", result.Authorization);
-          this.props.history.push("/"); //2주차에 마이페이지
-          return;
-        }
+        alert(실패);
       });
   };
 
@@ -279,9 +238,12 @@ class Account extends React.Component {
     const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
       email,
     );
-    const passwordcheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i.test(
+    const passwordcheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
       password,
     );
+
+    const checkpwcheck = password === checkPw;
+
     console.log({
       firstname,
       firstnamehasValue,
@@ -335,13 +297,7 @@ class Account extends React.Component {
                 <p>이메일</p>
                 <div className={`checkemail ${email && "success"}`}>
                   <input type="text" name="email" onChange={this.emailInput} />
-                  {/* {!emailhasValue && (
-                  <p className="warningMsg">이메일은 필수 입력 항목입니다.</p>
-                )}
-                {!emailCondition && (
-                  <p className="warningMsg">이메일 형식이 아닙니다.</p>
-                )} */}
-                  <p className={emailcheck ? "true" : "false"}>
+                  <p className="warningMsg">
                     {emailcheck ? "" : "이메일 형식이 아닙니다."}
                   </p>
                 </div>
@@ -351,38 +307,36 @@ class Account extends React.Component {
               </div>
               <div className="password accountTextInput">
                 <p>비밀번호</p>
-                {/* <div className={`checkpassword ${password && "success"}`}>
+                <div className={`checkpassword ${password && "success"}`}>
                   <input
                     type="password"
                     name="password"
                     onChange={this.passwordInput}
                   />
-                  <p className={passwordcheck ? "true" : "false"}>
-                    {passwordcheck ? "" : "숫자/소문자/대문자/특수문자를 포함한 8글자 이상을 작성해주세요."}
+                  <p className="warningMsg">
+                    {passwordcheck
+                      ? ""
+                      : "비밀번호를 숫자/소문자/대문자/특수문자를 모두 포함하여 8자 이상 작성해주세요."}
                   </p>
-                </div> */}
+                </div>
                 {!passwordhasValue && (
                   <p className="warningMsg">비밀번호은 필수 입력 항목입니다.</p>
-                )}
-                {!pwLengthCondition && (
-                  <p className="warningMsg">
-                    비밀번호는 최소 10자, 최대 30자여야 합니다.
-                  </p>
                 )}
               </div>
               <div className="checkPw accountTextInput">
                 <p>비밀번호 확인</p>
-                <input
-                  type="password"
-                  name="checkPw"
-                  hasvalue="checkPwhasValue"
-                  onChange={this.checkPwInput}
-                />
+                <div className={`checkpwcheck ${checkPw && "success"}`}>
+                  <input
+                    type="password"
+                    name="checkPw"
+                    onChange={this.checkPwInput}
+                  />
+                  <p className="warningMsg">
+                    {checkpwcheck ? "" : "비밀번호가 일치 하지 않습니다."}
+                  </p>
+                </div>
                 {!checkPwhasValue && (
                   <p className="warningMsg">비밀번호는 필수 입력 항목입니다.</p>
-                )}
-                {!checkpwCondition && (
-                  <p className="warningMsg">비밀번호가 일치 하지 않습니다.</p>
                 )}
               </div>
             </article>
@@ -415,7 +369,6 @@ class Account extends React.Component {
                   id="secondCheckbox"
                   type="checkbox"
                   name="serviceagreement"
-                  hasvalue="serviceagreementhasValue"
                   onClick={this.seviceagreementInput}
                 />
                 <label for="secondCheckbox"></label>
