@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import ProductCard from "./ProductCard";
+import NavList from "./NavList";
+import NavListTitle from "./NavListTitle";
+import VideoContainer from "./VideoContainer";
+import CategoryList from "./CategoryList";
+import ProductListContainer from "./ProductListContainer";
 import "./ProductList.scss";
+
+import { PRODUCTLIST } from "../../config"; //데이터 통신할때 활성화
 
 class ProductList extends Component {
   constructor() {
@@ -11,12 +17,11 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/data.json", {
-      method: "GET",
-    })
+    fetch("../../../data/data.json", {}) //(PRODUCTLIST 는 통신할때 사용한다.)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
+          // initData: res.message, (데이터 통신용)
           initData: res,
         });
       });
@@ -25,44 +30,11 @@ class ProductList extends Component {
   render() {
     return (
       <div className="ProductList">
-        <div className="navList">
-          <ul>
-            <li>speaker</li>
-            <li>headphones</li>
-            <li>televisions</li>
-            <li>accesaries</li>
-            <li>stories</li>
-          </ul>
-        </div>
-        <div className="navListTitle">
-          <div>Speaker</div>
-        </div>
-        <div className="video">
-          <img src="../images/logo.jpeg" alt="logo" />
-        </div>
-        <div className="categoryList">
-          <ul>
-            <li>VIEW ALL</li>
-            <li>PORTABLE</li>
-            <li>MULTIROOM</li>
-            <li>HOME THEATRE</li>
-            <li>STREO</li>
-            <li>ACHITECHTURAL</li>
-          </ul>
-        </div>
-        <div className="productListContainer">
-          {this.state.initData.map((product) => {
-            return (
-              <ProductCard
-                id={product.id}
-                imageSrc={product.imageSrc}
-                modelName={product.modelName}
-                description={product.description}
-                price={product.price}
-              />
-            );
-          })}
-        </div>
+        <NavList />
+        <NavListTitle />
+        <VideoContainer />
+        <CategoryList />
+        <ProductListContainer initData={this.state.initData} />
       </div>
     );
   }

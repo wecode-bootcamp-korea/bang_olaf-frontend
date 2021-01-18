@@ -1,44 +1,44 @@
 [
   {
-    "id": 1,
-    "imageSrc": "../images/second.jpeg",
-    "modelName": "BESOUND A1 2ND GEN",
-    "description": "WATERPROOF BLUETOOTH SPEAKER",
+    "subcategories_id": 1,
+    "image_url": "../images/second.jpeg",
+    "title": "BESOUND A1 2ND GEN",
+    "detail_title": "WATERPROOF BLUETOOTH SPEAKER",
     "price": "250$"
   },
   {
-    "id": 2,
-    "imageSrc": "../images/second.jpeg",
-    "modelName": "BESOUND BALRANCE",
-    "description": "INOVATIVE, WIRELESS HOME SPEAKER",
+    "subcategories_id": 2,
+    "image_url": "../images/second.jpeg",
+    "title": "BESOUND BALRANCE",
+    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
     "price": "2,250$"
   },
   {
-    "id": 3,
-    "imageSrc": "../images/second.jpeg",
-    "modelName": "BESOUND STAGE",
-    "description": "POWERFUL DORBY ATMOS SOUNDBAR",
+    "subcategories_id": 3,
+    "image_url": "../images/second.jpeg",
+    "title": "BESOUND STAGE",
+    "detail_title": "POWERFUL DORBY ATMOS SOUNDBAR",
     "price": "1,750$"
   },
   {
-    "id": 4,
-    "imageSrc": "../images/second.jpeg",
-    "modelName": "BESOUND BALRANCE",
-    "description": "INOVATIVE, WIRELESS HOME SPEAKER",
+    "subcategories_id": 4,
+    "image_url": "../images/second.jpeg",
+    "title": "BESOUND BALRANCE",
+    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
     "price": "2,250$"
   },
   {
-    "id": 5,
-    "imageSrc": "../images/second.jpeg",
-    "modelName": "BESOUND BALRANCE",
-    "description": "INOVATIVE, WIRELESS HOME SPEAKER",
+    "subcategories_id": 5,
+    "image_url": "../images/second.jpeg",
+    "title": "BESOUND BALRANCE",
+    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
     "price": "2,250$"
   },
   {
-    "id": 6,
-    "imageSrc": "../images/second.jpeg",
-    "modelName": "BESOUND BALRANCE",
-    "description": "INOVATIVE, WIRELESS HOME SPEAKER",
+    "subcategories_id": 6,
+    "image_url": "../images/second.jpeg",
+    "title": "BESOUND BALRANCE",
+    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
     "price": "2,250$"
   }
 ]

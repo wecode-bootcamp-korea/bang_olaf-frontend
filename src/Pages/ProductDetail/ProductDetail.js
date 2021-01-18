@@ -1,27 +1,17 @@
 import React, { Component } from "react";
-import ProductCard from "../ProductList/ProductCard";
+import CommonNavbar from "../../Components/Navbar/CommonNavbar";
+import ProductDetailNavbar from "./Components/ProductDetailNavbar";
+import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
-  state = {
-    initData: {},
-  };
-  componentDidMount = () => {
-    fetch(`/data/data.json/${this.props.match.params.id}`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          initData: res,
-        });
-      });
-  };
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
-    return (
-      <div>
-        <ProductCard />
-      </div>
-    );
+    return <ProductDetailNavbar />;
   }
 }
+
 export default ProductDetail;

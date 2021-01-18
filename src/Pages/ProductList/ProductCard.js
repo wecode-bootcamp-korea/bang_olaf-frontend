@@ -8,14 +8,14 @@ class ProductCard extends Component {
   };
 
   render() {
-    const { id, imageSrc, modelName, description, price } = this.props;
+    const { id, image_url, title, detail_title, price } = this.props;
     return (
-      <div onClick={this.gotoDetail} className="productCard" key={id}>
-        <img src={imageSrc} />
-        <div>{modelName}</div>
-        <div>{description}</div>
+      <article onClick={this.gotoDetail} className="productCard" key={id}>
+        <img src={image_url} />
+        <div>{title}</div>
+        <div>{detail_title}</div>
         <div>{price}</div>
-      </div>
+      </article>
     );
   }
 }

@@ -1,0 +1,17 @@
+.CategoryList {
+  width: 100%;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  height: 50px;
+  line-height: 50px;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    li {
+      list-style: none;
+    }
+    li:hover {
+      text-decoration: underline;
+    }
+  }
+}
