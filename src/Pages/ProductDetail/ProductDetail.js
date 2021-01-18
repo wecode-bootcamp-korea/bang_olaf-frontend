@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import CommonNavbar from "../../Components/Navbar/CommonNavbar";
 import ProductDetailNavbar from "./Components/ProductDetailNavbar";
 import Summary from "./Components/Summary/Summary";
 import Inspirations from "./Components/Inspirations/Inspirations";
@@ -31,7 +30,6 @@ class ProductDetail extends Component {
     const { Datas } = this.state;
     return (
       <>
-        {/* <CommonNavbar /> */}
         <ProductDetailNavbar />
         {Datas.map((item, index) => {
           return (
