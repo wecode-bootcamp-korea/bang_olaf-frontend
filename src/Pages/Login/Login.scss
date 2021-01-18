@@ -5,12 +5,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid pink;
+  //border: 1px solid pink;
   height: 100%;
   width: 100%;
 
   main {
-    border: 1px solid greenyellow;
+    //border: 1px solid greenyellow;
     margin-bottom: 200px;
 
     p,
@@ -20,7 +20,7 @@
     }
 
     .loginTitle {
-      border: 1px solid orange;
+      //border: 1px solid orange;
       margin-top: 177px;
       margin-bottom: 10px;
       display: flex;
@@ -33,7 +33,7 @@
       }
 
       .loginSmallLogo {
-        border: 1px solid firebrick;
+        //border: 1px solid firebrick;
         padding: 6px 0px;
         font-size: 14px;
         color: black;
@@ -52,7 +52,7 @@
     }
 
     article {
-      border: 1px solid hotpink;
+      //border: 1px solid hotpink;
       width: 500px;
       height: 358px;
       display: flex;
@@ -62,7 +62,7 @@
       .inputBundle {
         margin-top: 200px;
         div {
-          border: 1px solid rgb(90, 245, 90);
+          //border: 1px solid rgb(90, 245, 90);
           height: 79px;
           margin: 0 0 8px;
 
@@ -119,7 +119,7 @@
         flex-direction: column;
 
         button {
-          border: 1px solid red;
+          //border: 1px solid red;
           width: 240px;
           height: 40px;
           margin: 30px auto 15px;
@@ -189,7 +189,7 @@
   }
 
   footer {
-    border: 1px solid orange;
+    //border: 1px solid orange;
     height: 38px;
     width: 100%;
     position: relative;
@@ -225,11 +225,11 @@
   }
 
   /*추후 지우기*/
-  section {
-    border: 1px solid blue;
-  }
+  // section {
+  //   border: 1px solid blue;
+  // }
 
-  aside {
-    border: 1px solid black;
-  }
+  // aside {
+  //   border: 1px solid black;
+  // }
 }
