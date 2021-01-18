@@ -16,7 +16,7 @@ class Login extends Component {
       emailhasValue: true,
       pw: "",
       pwhasValue: true,
-      matchedValue: true,
+      //matchedValue: true,
       validUser: true,
     };
   }
