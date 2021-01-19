@@ -1,6 +1,7 @@
 import React from "react";
 import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
 import { Link } from "react-router-dom";
+import AccountFooter from "./components/AccountFooter";
 import "./Account.scss";
 
 class Account extends React.Component {
@@ -391,8 +392,9 @@ class Account extends React.Component {
             </Link>
           </section>
         </main>
-        <footer>
-          <select name="languageTranslation" id="languageSelect">
+        {/* <footer> */}
+        <AccountFooter />
+        {/* <select name="languageTranslation" id="languageSelect">
             <option value="">ENGLISH</option>
             <option value="">DANISH</option>
             <option value="">GERMAN</option>
@@ -412,8 +414,8 @@ class Account extends React.Component {
             </Link>
             <span>개인정보 보호정책</span>
             <span>서비스 약관</span>
-          </div>
-        </footer>
+          </div> */}
+        {/* </footer> */}
       </div>
     );
   }
