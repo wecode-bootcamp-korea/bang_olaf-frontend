@@ -78,6 +78,7 @@
 
           &.success {
             p {
+              top: 0px;
               display: inline;
             }
           }
@@ -136,9 +137,7 @@
           width: 240px;
           height: 40px;
           margin: 30px auto 15px;
-          transition-property: background-color;
-          transition-duration: 0.3s;
-          transition-timing-function: linear;
+          transition: background-color 0.3s linear;
           background-color: black;
           color: white;
           font-size: 14px;

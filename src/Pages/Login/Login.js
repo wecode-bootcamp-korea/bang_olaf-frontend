@@ -5,7 +5,7 @@ import { facebookOfficial } from "react-icons-kit/fa/facebookOfficial";
 import { apple } from "react-icons-kit/fa/apple";
 import { windows } from "react-icons-kit/fa/windows";
 import { earth } from "react-icons-kit/icomoon/earth";
-import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
+import { SIGNIN_API } from "../../config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -16,7 +16,6 @@ class Login extends Component {
       emailhasValue: true,
       pw: "",
       pwhasValue: true,
-      //matchedValue: true,
       validUser: true,
     };
   }
@@ -48,7 +47,7 @@ class Login extends Component {
   };
 
   handleLoginBtn = (e) => {
-    const { email, pw, emailhasValue, pwhasValue } = this.state;
+    const { email, pw } = this.state;
 
     const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
       email,
@@ -76,48 +75,39 @@ class Login extends Component {
 
     const matchedValue = emailcheck && pw;
 
-    if (!matchedValue) {
-      alert("!matchedValue 실행");
-      return; // 리턴 하는 게 맞나?
+    if (matchedValue) {
+      fetch(SIGNIN_API, {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: pw,
+        }),
+      })
+        .then((responce) => responce.json())
+        .then((result) => {
+          console.log({ result }); // 백의 결과 값을 보고 키명과 메세지 수정 가능
+
+          // 로그인에서만 쓰는 코드가 맞나 ?
+          if (result.message === "SUCCESS") {
+            // 메세지 키명: 콘솔 확인 후 백과 상의
+            localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
+            this.props.history.push("/");
+            return;
+          }
+
+          // result.message === "SUCCESS"가 아닐 경우
+          this.setState({
+            validUser: false,
+          });
+          return;
+        });
     }
 
-    fetch(SIGNIN_API, {
-      // 회원가입, 로그인 시 바꿔야 함.
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-        password: pw, //변경 (하민: input_password)
-      }),
-    })
-      .then((responce) => responce.json())
-      .then((result) => {
-        console.log({ result }); // 백의 결과 값을 보고 키명과 메세지 수정 가능
-
-        // 로그인에서만 쓰는 코드가 맞나 ?
-        if (result.message === "SUCCESS") {
-          // 메세지 키명: 콘솔 확인 후 백과 상의
-          localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
-          this.props.history.push("/");
-          return;
-        }
-
-        // result.message === "SUCCESS"가 아닐 경우
-        this.setState({
-          validUser: false,
-        });
-        return;
-      });
+    alert("실패");
   };
 
   render() {
-    const {
-      email,
-      emailhasValue,
-      pw,
-      pwhasValue,
-      matchedValue,
-      validUser,
-    } = this.state;
+    const { email, emailhasValue, pwhasValue, validUser } = this.state;
     console.log(this.state);
 
     const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
