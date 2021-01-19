@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import LoginFooter from "./components/LoginFooter";
+import { SIGNIN_API } from "../../config";
 import { Icon } from "react-icons-kit";
 import { facebookOfficial } from "react-icons-kit/fa/facebookOfficial";
 import { apple } from "react-icons-kit/fa/apple";
 import { windows } from "react-icons-kit/fa/windows";
 import { earth } from "react-icons-kit/icomoon/earth";
-import { SIGNIN_API } from "../../config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -14,105 +15,111 @@ class Login extends Component {
     this.state = {
       email: "",
       emailhasValue: true,
+      emailcheck: true,
       pw: "",
       pwhasValue: true,
       validUser: true,
     };
   }
 
-  emailInput = (e) => {
-    const emailValue = e.target.value;
+  // 1. 인풋 onChange 메소드
+  handleInput = (e) => {
+    const { name, value } = e.target;
     this.setState(
       {
-        email: emailValue,
+        [name]: value,
       },
-      () =>
-        this.setState({
-          emailhasValue: this.state.email.length > 0 ? true : false,
-        }),
+      () => this.checkValidity(`${name}hasValue`, this.state[name]),
     );
   };
 
-  passwordInput = (e) => {
-    const passwordValue = e.target.value;
-    this.setState(
-      {
-        pw: passwordValue,
-      },
-      () =>
-        this.setState({
-          pwhasValue: this.state.pw.length > 0 ? true : false,
-        }),
-    );
-  };
-
-  handleLoginBtn = (e) => {
-    const { email, pw } = this.state;
-
+  // 1-2. 인풋 값 유무 확인 및 이메일 조건 확인
+  checkValidity = (keyValue, inputValue) => {
+    const { email } = this.state;
     const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
       email,
     );
 
-    if (email) {
-      this.setState({
-        emailhasValue: true,
-      });
-    } else if (!email) {
-      this.setState({
-        emailhasValue: false,
-      });
-    }
+    this.setState({
+      [keyValue]: inputValue.length > 0,
+      emailcheck,
+    });
+  };
 
-    if (pw) {
-      this.setState({
-        pwhasValue: true,
-      });
-    } else if (!pw) {
-      this.setState({
-        pwhasValue: false,
-      });
-    }
+  // 버튼 onClick 메소드
+  handleLoginBtn = (e) => {
+    const {
+      email,
+      emailhasValue,
+      emailcheck,
+      pw,
+      pwhasValue,
+      validUser,
+    } = this.state;
 
+    // [변수] 백으로 보내기 위한 모든 조건 확인
     const matchedValue = emailcheck && pw;
 
-    if (matchedValue) {
-      fetch(SIGNIN_API, {
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-          password: pw,
-        }),
-      })
-        .then((responce) => responce.json())
-        .then((result) => {
-          console.log({ result }); // 백의 결과 값을 보고 키명과 메세지 수정 가능
-
-          // 로그인에서만 쓰는 코드가 맞나 ?
-          if (result.message === "SUCCESS") {
-            // 메세지 키명: 콘솔 확인 후 백과 상의
-            localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
-            this.props.history.push("/");
-            return;
-          }
-
-          // result.message === "SUCCESS"가 아닐 경우
-          this.setState({
-            validUser: false,
-          });
-          return;
-        });
+    // 모든 조건 True 아닐 때 실행
+    if (!matchedValue) {
+      console.log("!matchedValue 실행"); // 통신 후 지우기
+      this.setState({
+        emailhasValue: email,
+        pwhasValue: pw,
+      });
+    } else {
+      // 모든 조건 True 일때 실행
+      this.fetchSignin();
     }
+  };
 
-    alert("실패");
+  fetchSignin = () => {
+    const {
+      email,
+      emailhasValue,
+      emailcheck,
+      pw,
+      pwhasValue,
+      validUser,
+    } = this.state;
+
+    console.log("matchedValue실행"); // 통신 후 지우기
+    fetch(SIGNIN_API, {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: pw,
+      }),
+    })
+      .then((responce) => responce.json())
+      .then((result) => {
+        console.log({ result }); // 백의 결과 값을 보고 키명과 메세지 수정 가능
+
+        // 로그인에서만 쓰는 코드가 맞나 ?
+        if (result.message === "SUCCESS") {
+          // 메세지 키명: 콘솔 확인 후 백과 상의
+          localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
+          this.props.history.push("/");
+          return;
+        }
+
+        // result.message === "SUCCESS"가 아닐 경우
+        this.setState({
+          validUser: false,
+        });
+        return;
+      });
   };
 
   render() {
-    const { email, emailhasValue, pwhasValue, validUser } = this.state;
-    console.log(this.state);
-
-    const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+    const {
       email,
-    );
+      emailhasValue,
+      emailcheck,
+      pwhasValue,
+      validUser,
+    } = this.state;
+    console.log(this.state);
 
     return (
       <div className="login">
@@ -135,7 +142,7 @@ class Login extends Component {
                     className="email loginInput"
                     type="text"
                     name="email"
-                    onChange={this.emailInput}
+                    onChange={this.handleInput}
                   />
                   <p className="warningMsg">
                     {emailcheck ? "" : "유효한 이메일 형식이 아닙니다."}
@@ -151,7 +158,7 @@ class Login extends Component {
                   className="pw loginInput"
                   type="password"
                   name="pw"
-                  onChange={this.passwordInput}
+                  onChange={this.handleInput}
                 />
                 {!pwhasValue && (
                   <p className="warningMsg">비밀번호은 필수 입력 항목입니다.</p>
@@ -189,29 +196,7 @@ class Login extends Component {
             WINDOWS
           </button>
         </aside>
-        <footer>
-          <select name="languageTranslation" id="languageSelect">
-            <option value="">ENGLISH</option>
-            <option value="">DANISH</option>
-            <option value="">GERMAN</option>
-            <option value="">SPANISH</option>
-            <option value="">FRENCH</option>
-            <option value="">ITALIAN</option>
-            <option value="">JAPANESE</option>
-            <option value="">KOREAN</option>
-            <option value="">DUTCH</option>
-            <option value="">RUSSIAN</option>
-            <option value="">CHINESE</option>
-            <option value="">CHINESE TRADITIONAL</option>
-          </select>
-          <div>
-            <Link to="/">
-              <span>@ 2021 Bang & Olaf</span>
-            </Link>
-            <span>개인정보 보호정책</span>
-            <span>서비스 약관</span>
-          </div>
-        </footer>
+        <LoginFooter />
       </div>
     );
   }
