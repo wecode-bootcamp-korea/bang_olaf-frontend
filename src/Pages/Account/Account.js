@@ -110,10 +110,10 @@ class Account extends React.Component {
         checkPwhasValue: checkPw,
         serviceagreementhasValue: serviceagreement,
       });
+    } else {
+      // 3-1.[메소드 실행] 모든 조건 일치 시 fetch함수 실행
+      this.fetchSignup();
     }
-
-    // 3-1.[메소드 실행] 모든 조건 일치 시 fetch함수 실행
-    this.fetchSignup();
   };
 
   fetchSignup = () => {
@@ -135,6 +135,8 @@ class Account extends React.Component {
       serviceagreement,
       serviceagreementhasValue,
     } = this.state;
+
+    console.log("fetchSignup 실행");
 
     fetch(SIGNUP_API, {
       method: "POST",
