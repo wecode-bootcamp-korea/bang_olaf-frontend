@@ -22,7 +22,7 @@ class Account extends React.Component {
     };
   }
 
-  // 인풋의 변화연동
+  // 인풋의 변화연동 (state 에 인풋 값 & 값 유무 업데이트 해주는 코드)
   firstnameInput = (e) => {
     const firstnameValue = e.target.value;
     this.setState(
@@ -128,64 +128,64 @@ class Account extends React.Component {
     if (!allAcceptedAccountCondition) {
       alert("실패");
 
-      if (!firstname) {
-        this.setState({
-          firstnamehasValue: false,
-        });
-      } else if (firstname) {
-        this.setState({
-          firstnamehasValue: true,
-        });
+      {
+        firstname
+          ? this.setState({
+              firstnamehasValue: true,
+            })
+          : this.setState({
+              firstnamehasValue: false,
+            });
       }
 
-      if (!lastname) {
-        this.setState({
-          lastnamehasValue: false,
-        });
-      } else if (lastname) {
-        this.setState({
-          lastnamehasValue: true,
-        });
+      {
+        lastname
+          ? this.setState({
+              lastnamehasValue: true,
+            })
+          : this.setState({
+              lastnamehasValue: false,
+            });
       }
 
-      if (!email) {
-        this.setState({
-          emailhasValue: false,
-        });
-      } else if (email) {
-        this.setState({
-          emailhasValue: true,
-        });
+      {
+        email
+          ? this.setState({
+              emailhasValue: true,
+            })
+          : this.setState({
+              emailhasValue: false,
+            });
       }
 
-      if (!password) {
-        this.setState({
-          passwordhasValue: false,
-        });
-      } else if (password) {
-        this.setState({
-          passwordhasValue: true,
-        });
+      {
+        password
+          ? this.setState({
+              passwordhasValue: true,
+            })
+          : this.setState({
+              passwordhasValue: false,
+            });
       }
 
-      if (!checkPw) {
-        this.setState({
-          checkPwhasValue: false,
-        });
-      } else if (checkPw) {
-        this.setState({
-          checkPwhasValue: true,
-        });
+      {
+        checkPw
+          ? this.setState({
+              checkPwhasValue: true,
+            })
+          : this.setState({
+              checkPwhasValue: false,
+            });
       }
 
-      if (!serviceagreement) {
-        this.setState({
-          serviceagreementhasValue: false,
-        });
-      } else if (serviceagreement) {
-        this.setState({
-          serviceagreementhasValue: true,
-        });
+      {
+        serviceagreement
+          ? this.setState({
+              serviceagreementhasValue: true,
+            })
+          : this.setState({
+              serviceagreementhasValue: false,
+            });
       }
     }
 
@@ -204,13 +204,14 @@ class Account extends React.Component {
       .then((result) => {
         alert({ result });
 
-        //
+        // 회원가입 성공한 경우
         if (result.message === "SUCCESS") {
           //localStorage.setItem("token", result.Authorization);
           this.props.history.push("/"); //2주차에 마이페이지
           return;
         }
 
+        // 실패의 모든 경우
         alert(실패);
       });
   };
@@ -371,7 +372,7 @@ class Account extends React.Component {
                   name="serviceagreement"
                   onClick={this.seviceagreementInput}
                 />
-                <label for="secondCheckbox"></label>
+                <label for="secondCheckbox" />
                 <span className="agreement service">
                   동의 서비스 약관 & 개인정보 보호정책
                 </span>
