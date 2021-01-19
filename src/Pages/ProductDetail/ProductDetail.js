@@ -20,13 +20,13 @@ class ProductDetail extends Component {
   }
 
   updateDate() {
-    fetch(PRODUCTDETAIL_API, {
+    fetch("/data/ProductsData.json", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          Datas: data.result,
+          Datas: data,
         });
       });
   }
