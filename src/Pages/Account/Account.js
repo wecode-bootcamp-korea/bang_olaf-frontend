@@ -1,5 +1,5 @@
 import React from "react";
-import { SERVER, SIGNUP_API, SIGNIN_API } from "../../config";
+import { SERVER, SIGNUP_API } from "../../config";
 import { Link } from "react-router-dom";
 import AccountFooter from "./components/AccountFooter";
 import "./Account.scss";
@@ -27,9 +27,7 @@ class Account extends React.Component {
     };
   }
 
-  // 인풋의 변화연동 (state 에 인풋 값 & 값 유무 업데이트 해주는 코드)
-
-  // 인풋 onChange 메소드
+  // 1. text인풋 onChange 메소드
   handleInput = (e) => {
     const { name, value } = e.target;
     this.setState(
@@ -40,6 +38,7 @@ class Account extends React.Component {
     );
   };
 
+  // 1-2. 인풋 값 유무 및 이메일/비번/비번확인 조건식 업데이트
   checkValidity = (keyValue, inputValue) => {
     const { email, password, checkPw } = this.state;
 
@@ -59,7 +58,7 @@ class Account extends React.Component {
     });
   };
 
-  // 체크박스 onClick 메소드
+  // 1. checkbox인풋 onClick 메소드
   handleCheckbox = (e) => {
     const { name, checked } = e.target;
     this.setState({
@@ -68,9 +67,8 @@ class Account extends React.Component {
     });
   };
 
-  // 버튼 클릭시 실행되는 메소드
+  // 2. 버튼 onClick 메소드 (모든 조건 True여부 검사)
   handleBtn = () => {
-    // 원래 조건 넣고 setState하는 자리
     const {
       firstname,
       firstnamehasValue,
@@ -80,7 +78,6 @@ class Account extends React.Component {
       emailhasValue,
       emailcheck,
       password,
-      pwLengthCondition,
       passwordhasValue,
       passwordcheck,
       checkPw,
@@ -91,15 +88,7 @@ class Account extends React.Component {
       serviceagreementhasValue,
     } = this.state;
 
-    // const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
-    //   email,
-    // );
-    // const passwordcheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-    //   password,
-    // );
-
-    // const checkpwcheck = password === checkPw;
-
+    // [변수] 모든 조건 일치 여부 검사
     const allAcceptedAccountCondition =
       firstname &&
       lastname &&
@@ -108,86 +97,44 @@ class Account extends React.Component {
       checkpwcheck &&
       serviceagreement;
 
+    // 3-1. 모든 조건 미일치 시
     if (!allAcceptedAccountCondition) {
-      alert("실패");
+      alert("allAcceptedAccountCondition 실패");
 
-      this.setState(
-        {
-          firstnamehasValue: firstname,
-          lastnamehasValue: lastname,
-          emailhasValue: email,
-          passwordhasValue: password,
-          checkPwhasValue: checkPw,
-          serviceagreementhasValue: serviceagreement,
-        },
-        console.log(
-          "버튼 눌렀을때 ",
-          emailhasValue,
-          "LAST NAME",
-          lastnamehasValue,
-        ),
-      );
-
-      // {
-      //   firstname
-      //     ? this.setState({
-      //         firstnamehasValue: true,
-      //       })
-      //     : this.setState({
-      //         firstnamehasValue: false,
-      //       });
-      // }
-
-      // {
-      //   lastname
-      //     ? this.setState({
-      //         lastnamehasValue: true,
-      //       })
-      //     : this.setState({
-      //         lastnamehasValue: false,
-      //       });
-      // }
-
-      // {
-      //   email
-      //     ? this.setState({
-      //         emailhasValue: true,
-      //       })
-      //     : this.setState({
-      //         emailhasValue: false,
-      //       });
-      // }
-
-      // {
-      //   password
-      //     ? this.setState({
-      //         passwordhasValue: true,
-      //       })
-      //     : this.setState({
-      //         passwordhasValue: false,
-      //       });
-      // }
-
-      // {
-      //   checkPw
-      //     ? this.setState({
-      //         checkPwhasValue: true,
-      //       })
-      //     : this.setState({
-      //         checkPwhasValue: false,
-      //       });
-      // }
-
-      // {
-      //   serviceagreement
-      //     ? this.setState({
-      //         serviceagreementhasValue: true,
-      //       })
-      //     : this.setState({
-      //         serviceagreementhasValue: false,
-      //       });
-      // }
+      // 3-2. 인풋 창 Warning Msg 나타내기 위한 코드
+      this.setState({
+        firstnamehasValue: firstname,
+        lastnamehasValue: lastname,
+        emailhasValue: email,
+        passwordhasValue: password,
+        checkPwhasValue: checkPw,
+        serviceagreementhasValue: serviceagreement,
+      });
     }
+
+    // 3-1.[메소드 실행] 모든 조건 일치 시 fetch함수 실행
+    this.fetchSignup();
+  };
+
+  fetchSignup = () => {
+    const {
+      firstname,
+      firstnamehasValue,
+      lastname,
+      lastnamehasValue,
+      email,
+      emailhasValue,
+      emailcheck,
+      password,
+      passwordhasValue,
+      passwordcheck,
+      checkPw,
+      checkPwhasValue,
+      checkpwcheck,
+      adagreement,
+      serviceagreement,
+      serviceagreementhasValue,
+    } = this.state;
 
     fetch(SIGNUP_API, {
       method: "POST",
@@ -204,14 +151,13 @@ class Account extends React.Component {
       .then((result) => {
         alert({ result });
 
-        // 회원가입 성공한 경우
+        // 3-2. 회원가입 성공한 경우
         if (result.message === "SUCCESS") {
-          //localStorage.setItem("token", result.Authorization);
           this.props.history.push("/"); //2주차에 마이페이지
           return;
         }
 
-        // 실패의 모든 경우
+        // 3-2. 실패의 모든 경우
         alert(실패);
       });
   };
@@ -235,15 +181,6 @@ class Account extends React.Component {
       serviceagreement,
       serviceagreementhasValue,
     } = this.state;
-
-    // const emailcheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
-    //   email,
-    // );
-    // const passwordcheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-    //   password,
-    // );
-
-    // const checkpwcheck = password === checkPw;
 
     console.log({
       firstname,
