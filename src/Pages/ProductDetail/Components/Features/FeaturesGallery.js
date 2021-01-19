@@ -1,24 +1,11 @@
 import React, { Component } from "react";
 
 class Features extends Component {
-  constructor() {
-    super();
-    this.state = {
-      galleryList: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      galleryList: this.props.src,
-    });
-  }
-
   render() {
-    const { galleryList } = this.state;
+    const { src } = this.props;
     return (
       <article className="featuresGallery">
-        {galleryList.map((img, index) => {
+        {src.map((img, index) => {
           return <img key={index} alt={`featuresImages--${index}`} src={img} />;
         })}
       </article>

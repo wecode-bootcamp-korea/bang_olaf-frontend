@@ -4,6 +4,7 @@ import Summary from "./Components/Summary/Summary";
 import Inspirations from "./Components/Inspirations/Inspirations";
 import Features from "./Components/Features/Features";
 import ProductSpec from "./Components/ProductSpec/ProductSpec";
+import { PRODUCTDETAIL_API } from "../../config";
 import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
@@ -15,13 +16,17 @@ class ProductDetail extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/productsData.json", {
+    this.updateDate();
+  }
+
+  updateDate() {
+    fetch(PRODUCTDETAIL_API, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          Datas: data,
+          Datas: data.result,
         });
       });
   }
@@ -32,6 +37,7 @@ class ProductDetail extends Component {
       <>
         <ProductDetailNavbar />
         {Datas.map((item, index) => {
+          console.log(item);
           return (
             <div key={index}>
               <Summary

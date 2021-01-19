@@ -5,11 +5,6 @@ import SummaryContent from "./SummaryContent";
 import "../Summary/Summary.scss";
 
 class Summary extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     const {
       imageUrl,

@@ -1,22 +1,8 @@
 import React, { Component } from "react";
 
 class Inspirations extends Component {
-  constructor() {
-    super();
-    this.state = {
-      slideList: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      slideList: this.props.slide_image,
-    });
-  }
-
   render() {
     const { id, title, description, video, slide_image } = this.props;
-    const { slideList } = this.state;
     return (
       <section className="inspirations" id="영감">
         <div className="inspirationsGroup">
@@ -34,8 +20,10 @@ class Inspirations extends Component {
 
         <article className="inspirationsSlide">
           <div className="inspirationsSlideImges">
-            {slideList.map((images, index) => {
-              return <img alt={`SlideImages__${index}`} src={images} />;
+            {slide_image.map((images, index) => {
+              return (
+                <img alt={`SlideImages__${index}`} src={images} key={index} />
+              );
             })}
           </div>
         </article>

@@ -21,9 +21,9 @@ class ProductSpec extends Component {
         </div>
 
         <div className="ProductSpecBtn">
-          {btnMenu.map((btn) => {
+          {btnMenu.map((btn, idx) => {
             return (
-              <button>
+              <button key={idx}>
                 <h3>{btn}</h3>
               </button>
             );

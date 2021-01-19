@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import FeaturesGallery from "./FeaturesGallery";
 import FeaturesInfo from "./FeaturesInfo";
+import FeaturesBox from "./FeaturesBox";
 
 class Features extends Component {
   constructor() {
     super();
     this.state = {
-      commentList: [],
+      FeaturesList: [],
     };
   }
+
   render() {
     const {
       id,
@@ -18,6 +20,8 @@ class Features extends Component {
       images,
       gallery_images,
     } = this.props;
+
+    console.log(title[0]);
 
     return (
       <section className="features" id="특장점">
