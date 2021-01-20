@@ -144,7 +144,7 @@ class Account extends React.Component {
         }
 
         // 3-2. 실패의 모든 경우
-        alert(실패);
+        alert("실패");
       });
   };
 
