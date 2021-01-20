@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Main from "./Pages/Main/Main";
 import CommonNavbar from "./Components/Navbar/CommonNavbar";
 import Account from "./Pages/Account/Account";
 import Login from "./Pages/Login/Login";
@@ -13,6 +14,7 @@ class Routes extends React.Component {
       <Router>
         <CommonNavbar />
         <Switch>
+          <Route exact path="/" component={Main} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/product_list" component={ProductList} />
