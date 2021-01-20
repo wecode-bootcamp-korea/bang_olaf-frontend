@@ -9,13 +9,11 @@
   font-family: $logonAccountCommonFontFamily;
 
   main {
-    //border: 1px solid red;
     width: 476px;
     height: 877px;
     margin: 95px 0px 60px;
 
     .accountTitle {
-      //border: 1px solid greenyellow;
       margin-bottom: 64px;
       font-size: 24px;
       text-align: center;
@@ -132,7 +130,6 @@
           }
 
           .adDescription {
-            //border: 1px solid black;
             height: 110px;
             padding: 10px 0 20px;
             line-height: 16px;
@@ -175,10 +172,8 @@
     .registerMovetologinBundle {
       @include flex(center, _);
       flex-direction: column;
-      //margin: 0 auto;
 
       .registrationBtn {
-        //border: 1px solid red;
         width: 240px;
         height: 40px;
         margin: 30px auto auto auto;
@@ -204,12 +199,4 @@
       }
     }
   }
-
-  /*추후 삭제*/
-  /*section {
-    border: 1px solid blue;
-    article {
-      border: 1px solid green;
-    }
-  }*/
 }

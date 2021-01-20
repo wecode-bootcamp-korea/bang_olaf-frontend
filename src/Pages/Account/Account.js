@@ -71,19 +71,13 @@ class Account extends React.Component {
   handleBtn = () => {
     const {
       firstname,
-      firstnamehasValue,
       lastname,
-      lastnamehasValue,
       email,
-      emailhasValue,
       emailcheck,
       password,
-      passwordhasValue,
       passwordcheck,
       checkPw,
-      checkPwhasValue,
       checkpwcheck,
-      adagreement,
       serviceagreement,
       serviceagreementhasValue,
     } = this.state;
@@ -119,21 +113,11 @@ class Account extends React.Component {
   fetchSignup = () => {
     const {
       firstname,
-      firstnamehasValue,
       lastname,
-      lastnamehasValue,
       email,
-      emailhasValue,
-      emailcheck,
       password,
-      passwordhasValue,
-      passwordcheck,
       checkPw,
-      checkPwhasValue,
-      checkpwcheck,
       adagreement,
-      serviceagreement,
-      serviceagreementhasValue,
     } = this.state;
 
     console.log("fetchSignup 실행");
@@ -184,24 +168,6 @@ class Account extends React.Component {
       serviceagreementhasValue,
     } = this.state;
 
-    console.log({
-      firstname,
-      firstnamehasValue,
-      lastname,
-      lastnamehasValue,
-      email,
-      emailhasValue,
-      emailcheck,
-      password,
-      passwordhasValue,
-      passwordcheck,
-      checkPw,
-      checkPwhasValue,
-      checkpwcheck,
-      adagreement,
-      serviceagreement,
-      serviceagreementhasValue,
-    });
     return (
       <div className="account">
         <main>
