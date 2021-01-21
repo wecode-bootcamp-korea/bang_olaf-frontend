@@ -1,2 +1,3 @@
 export const SERVER = "http://10.58.3.237:8000";
-export const SIGNIN_API = `${SERVER}/users/signin`; // 백과 조율
+export const SIGNUP_API = `${SERVER}/user/signup`;
+export const SIGNIN_API = `${SERVER}/user/signin`; // 백과 조율
