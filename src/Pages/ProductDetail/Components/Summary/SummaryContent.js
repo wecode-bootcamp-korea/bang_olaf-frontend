@@ -24,7 +24,7 @@ class SummaryContent extends Component {
               <li key={idx}>
                 <div
                   className="colorBorder"
-                  onClick={() => this.props.handleChangeColor()}
+                  onClick={() => this.props.handleChangeColor(idx)}
                 >
                   <div className={`colorContent0${idx + 1}`}>
                     <p>{idx}</p>

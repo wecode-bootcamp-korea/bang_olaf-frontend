@@ -22,14 +22,14 @@ class ProductDetail extends Component {
   }
 
   updateDate() {
-    fetch("/data/ProductsData.json", {
+    fetch(PRODUCTDETAIL_API, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          Datas: data,
-          imgUrl: data[0].productsData.color,
+          Datas: data.results,
+          imgUrl: data.results[0].productsData.colors,
         });
       });
   }
@@ -39,7 +39,7 @@ class ProductDetail extends Component {
   };
 
   render() {
-    const { Datas } = this.state;
+    const { Datas, imgUrl } = this.state;
     return (
       <>
         <ProductDetailNavbar />
@@ -49,9 +49,9 @@ class ProductDetail extends Component {
               <Summary
                 handleChangeColor={this.handleChangeColor}
                 imageUrl={
-                  this.state.imgUrl && this.state.btnColor
-                    ? this.state.imgUrl.black
-                    : this.state.imgUrl.red
+                  imgUrl && this.state.btnColor
+                    ? imgUrl[0].image
+                    : imgUrl[1].image
                 }
                 title={item.productsData.title}
                 detailTitle={item.productsData.detailTitle}
@@ -70,7 +70,7 @@ class ProductDetail extends Component {
                 sub_title={item.features.sub_title}
                 description={item.features.description}
                 images={item.features.images}
-                gallery_images={item.features.gallery_images}
+                // gallery_images={item.features.gallery_images}
               />
             </div>
           );

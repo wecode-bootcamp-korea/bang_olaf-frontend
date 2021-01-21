@@ -15,6 +15,9 @@ export default class SimpleSlider extends Component {
       initialSlide: 2,
     };
     const { imageUrl } = this.props;
+
+    console.log("슬라이더", imageUrl);
+
     return (
       <Slider {...settings} className="sliderImages">
         {imageUrl &&

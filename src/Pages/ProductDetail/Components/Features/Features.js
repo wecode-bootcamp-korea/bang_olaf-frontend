@@ -36,7 +36,7 @@ class Features extends Component {
           sub_title={sub_title}
           description={description}
         />
-        <FeaturesGallery src={gallery_images} />
+        {/* <FeaturesGallery src={gallery_images} /> */}
         <FeaturesResponsive images={images} />
       </section>
     );
