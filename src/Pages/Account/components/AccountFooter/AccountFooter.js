@@ -6,7 +6,7 @@ import "./AccountFooter.scss";
 class AccountFooter extends React.Component {
   render() {
     return (
-      <div className="accountfooter">
+      <footer className="accountfooter">
         <LanguageOptionList />
         <div>
           <Link to="/">
@@ -15,7 +15,7 @@ class AccountFooter extends React.Component {
           <span>개인정보 보호정책</span>
           <span>서비스 약관</span>
         </div>
-      </div>
+      </footer>
     );
   }
 }

@@ -7,9 +7,12 @@ class LanguageOptionList extends React.Component {
     return (
       <div className="languageOptionList">
         <select name="languageTranslation" id="languageSelect">
-          {FOOTERLANGUAGE.map((el) => {
-            console.log("맵 함수 실행됨", el);
-            return <option value="">{el}</option>;
+          {FOOTERLANGUAGE.map((data) => {
+            return (
+              <option value="" key={data.id}>
+                {data.languageType}
+              </option>
+            );
           })}
         </select>
       </div>
