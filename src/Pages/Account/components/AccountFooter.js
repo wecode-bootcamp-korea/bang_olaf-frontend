@@ -21,7 +21,7 @@ class AccountFooter extends React.Component {
           <option value="">CHINESE TRADITIONAL</option>
         </select>
         <div>
-          <Link to="/">
+          <Link to="/product_list">
             <span>@ 2021 Bang & Olaf</span>
           </Link>
           <span>개인정보 보호정책</span>

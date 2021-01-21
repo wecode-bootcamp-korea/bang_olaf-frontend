@@ -24,8 +24,23 @@ class Account extends React.Component {
       adagreement: false,
       serviceagreement: false,
       serviceagreementhasValue: true,
+      // detailAd: false,
     };
   }
+
+  // // 광고 디테일 창
+  // handleDetailAd = () => {
+  //   const { detailAd } = this.state;
+  //   if (detailAd === true) {
+  //     this.setState({
+  //       detailAd: false,
+  //     });
+  //   } else if (detailAd === false) {
+  //     this.setState({
+  //       detailAd: true,
+  //     });
+  //   }
+  // };
 
   // 1. text인풋 onChange 메소드
   handleInput = (e) => {
@@ -93,7 +108,7 @@ class Account extends React.Component {
 
     // 3-1. 모든 조건 미일치 시
     if (!allAcceptedAccountCondition) {
-      alert("allAcceptedAccountCondition 실패");
+      //alert("allAcceptedAccountCondition 실패");
 
       // 3-2. 인풋 창 Warning Msg 나타내기 위한 코드
       this.setState({
@@ -120,7 +135,7 @@ class Account extends React.Component {
       adagreement,
     } = this.state;
 
-    console.log("fetchSignup 실행");
+    // console.log("fetchSignup 실행");
 
     fetch(SIGNUP_API, {
       method: "POST",
@@ -135,16 +150,16 @@ class Account extends React.Component {
     })
       .then((response) => response.json())
       .then((result) => {
-        alert({ result });
+        console.log({ result }); // 통신 확인 후 지우기
 
         // 3-2. 회원가입 성공한 경우
         if (result.message === "SUCCESS") {
-          this.props.history.push("/"); //2주차에 마이페이지
+          this.props.history.push("/product_list"); //2주차에 마이페이지
           return;
         }
 
         // 3-2. 실패의 모든 경우
-        alert("실패");
+        alert("실패"); // 통신 확인 후 지우기
       });
   };
 
@@ -166,8 +181,10 @@ class Account extends React.Component {
       adagreement,
       serviceagreement,
       serviceagreementhasValue,
+      detailAd,
     } = this.state;
 
+    console.log(detailAd);
     return (
       <div className="account">
         <main>
@@ -176,7 +193,6 @@ class Account extends React.Component {
             <article className="inputBundle">
               <div className="firstname accountTextInput">
                 <p>이름</p>
-
                 <input
                   type="text"
                   name="firstname"
@@ -204,7 +220,11 @@ class Account extends React.Component {
                 <div className={`checkemail ${email && "success"}`}>
                   <input type="text" name="email" onChange={this.handleInput} />
                   <p className="warningMsg">
-                    {emailcheck ? "" : "유효한 이메일 형식이 아닙니다."}
+                    {!emailcheck && (
+                      <p className="warningMsg">
+                        유효한 이메일 형식이 아닙니다.
+                      </p>
+                    )}
                   </p>
                 </div>
                 {!emailhasValue && (
@@ -220,9 +240,12 @@ class Account extends React.Component {
                     onChange={this.handleInput}
                   />
                   <p className="warningMsg">
-                    {passwordcheck
-                      ? ""
-                      : "비밀번호를 숫자/소문자/대문자/특수문자를 모두 포함하여 8자 이상 작성해주세요."}
+                    {!passwordcheck && (
+                      <p className="warningMsg">
+                        비밀번호를 숫자/소문자/대문자/특수문자를 모두 포함하여
+                        8자 이상 작성해주세요.
+                      </p>
+                    )}
                   </p>
                 </div>
                 {!passwordhasValue && (
@@ -237,9 +260,9 @@ class Account extends React.Component {
                     name="checkPw"
                     onChange={this.handleInput}
                   />
-                  <p className="warningMsg">
-                    {checkpwcheck ? "" : "비밀번호가 일치 하지 않습니다."}
-                  </p>
+                  {!checkpwcheck && (
+                    <p className="warningMsg">비밀번호가 일치 하지 않습니다.</p>
+                  )}
                 </div>
                 {!checkPwhasValue && (
                   <p className="warningMsg">비밀번호는 필수 입력 항목입니다.</p>
@@ -262,25 +285,35 @@ class Account extends React.Component {
                     받고 싶습니다
                   </span>
                 </div>
-                <div className="agreement adDescription">
+                <div
+                  className={`agreement adDescription ${detailAd && "success"}`}
+                >
                   <span className="sameWithFooterfont">Bang & Olaf</span> 및
                   당사 제품과 관련된 뉴스, 특별 혜택, 이벤트 및 특별 경연 초대장
                   등의 소식을 가장 먼저 받아보세요. 저희가 여러분께 소식을 가장
                   먼저 전해드리기 위해 여러분의 연락처 정보를 수집해야 합니다.
-                  당사 통신에 대한 자세한 내용 읽기
+                  <span
+                    className="clickDetailAdagreement"
+                    // onClick={this.handleDetailAd}
+                  >
+                    당사 통신에 대한 자세한 내용 읽기
+                  </span>
+                  {/* <div className="detailAdDesc">자세한 내용 div</div> */}
                 </div>
               </div>
               <div className="secondCheckboxBundle">
-                <input
-                  id="secondCheckbox"
-                  type="checkbox"
-                  name="serviceagreement"
-                  onChange={this.handleCheckbox}
-                />
-                <label for="secondCheckbox" />
-                <span className="agreement service">
-                  동의 서비스 약관 & 개인정보 보호정책
-                </span>
+                <div>
+                  <input
+                    id="secondCheckbox"
+                    type="checkbox"
+                    name="serviceagreement"
+                    onChange={this.handleCheckbox}
+                  />
+                  <label for="secondCheckbox" />
+                  <span className="agreement service">
+                    동의 서비스 약관 & 개인정보 보호정책
+                  </span>
+                </div>
                 {!serviceagreementhasValue && (
                   <p className="warningMsg">서비스 약관에 동의해야 합니다.</p>
                 )}
@@ -291,7 +324,7 @@ class Account extends React.Component {
             <button className="registrationBtn" onClick={this.handleBtn}>
               등록
             </button>
-            <Link to="/">
+            <Link to="/product_list">
               <p>페이지의 로그로 이동</p>
             </Link>
           </section>
