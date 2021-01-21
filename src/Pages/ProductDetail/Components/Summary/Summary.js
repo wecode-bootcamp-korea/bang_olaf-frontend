@@ -20,6 +20,8 @@ class Summary extends Component {
         <div className="summaryGroup">
           <SimpleSlider imageUrl={imageUrl} />
           <SummaryContent
+            handleChangeColor={this.props.handleChangeColor}
+            imageUrl={imageUrl}
             title={title}
             detailTitle={detailTitle}
             description={description}

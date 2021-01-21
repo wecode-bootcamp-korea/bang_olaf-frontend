@@ -50,13 +50,20 @@
             background: rgb(255, 255, 255);
             outline: none;
             cursor: pointer;
+            p {
+              text-indent: -9999px;
+            }
+
           }
 
-          .colorBorder > .colorContent {
+          .colorBorder > .colorContent01 {
             background-color: #000;
-            width: 17px;
-            border-radius: 50%;
-            margin: 5px;
+            @extend %colorBorder;
+          }
+
+          .colorBorder > .colorContent02 {
+            background-color: red;
+            @extend %colorBorder;
           }
         }
 
@@ -72,6 +79,7 @@
         margin-top: 20px;
 
       }
+      
     }
   }
 

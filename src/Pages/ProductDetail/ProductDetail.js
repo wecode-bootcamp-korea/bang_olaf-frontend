@@ -12,6 +12,8 @@ class ProductDetail extends Component {
     super();
     this.state = {
       Datas: [],
+      imgUrl: [],
+      btnColor: true,
     };
   }
 
@@ -27,9 +29,14 @@ class ProductDetail extends Component {
       .then((data) => {
         this.setState({
           Datas: data,
+          imgUrl: data[0].productsData.color,
         });
       });
   }
+
+  handleChangeColor = () => {
+    this.setState({ btnColor: !this.state.btnColor });
+  };
 
   render() {
     const { Datas } = this.state;
@@ -37,11 +44,15 @@ class ProductDetail extends Component {
       <>
         <ProductDetailNavbar />
         {Datas.map((item, index) => {
-          console.log(item);
           return (
             <div key={index}>
               <Summary
-                imageUrl={item.productsData.imageUrl}
+                handleChangeColor={this.handleChangeColor}
+                imageUrl={
+                  this.state.imgUrl && this.state.btnColor
+                    ? this.state.imgUrl.black
+                    : this.state.imgUrl.red
+                }
                 title={item.productsData.title}
                 detailTitle={item.productsData.detailTitle}
                 description={item.productsData.description}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BuyButton from "../../../../Components/Button/BuyButton";
 
 class SummaryContent extends Component {
   render() {
@@ -10,8 +11,6 @@ class SummaryContent extends Component {
       price,
     } = this.props;
 
-    const colors = ["#FF0000", "#ffffff", "#000000"];
-
     return (
       <div className="summaryContent">
         <div className="summaryTitle">{title}</div>
@@ -20,18 +19,23 @@ class SummaryContent extends Component {
         <p className="summaryDescriptionReview">{descriptionEnglish}</p>
 
         <ul>
-          {colors.map((color, idx) => {
+          {[...Array(2)].map((_, idx) => {
             return (
               <li key={idx}>
-                <div className="colorBorder">
-                  <div className="colorContent">{idx + 1}</div>
+                <div
+                  className="colorBorder"
+                  onClick={() => this.props.handleChangeColor()}
+                >
+                  <div className={`colorContent0${idx + 1}`}>
+                    <p>{idx}</p>
+                  </div>
                 </div>
               </li>
             );
           })}
         </ul>
-
         <span className="summaryPrice">{price}</span>
+        <BuyButton />
       </div>
     );
   }

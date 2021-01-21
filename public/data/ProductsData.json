@@ -2,8 +2,13 @@
   {
     "productsData": {
       "id": "1",
-      "imageUrl":["https://images.ctfassets.net/8cd2csgvqd3m/4ufektQNcTYJ7XpYKc7Eb7/a871c886ba2551ad2f6e4ed2fcc933d1/PS_A1_Neutral_Hero__1080x1080__copy.png?q=90&fm=webp&w=720&h=720&fit=fill","https://images.ctfassets.net/8cd2csgvqd3m/4AJG5Rs1eJLPm4sZza7Ik5/30c557d2ea8142bfe65ceda7aa863f6a/Grey_2.jpg?q=90&fm=webp&w=720&h=720&fit=fill",
-        "https://images.ctfassets.net/8cd2csgvqd3m/5ndkR0VvlThwnMOOHFXj2I/fc9673d6d4fccb5f73f228e21c619261/Grey_3.jpg?q=90&fm=webp&w=720&h=720&fit=fill"],
+      "color":{
+        "black" : ["https://images.ctfassets.net/8cd2csgvqd3m/4ufektQNcTYJ7XpYKc7Eb7/a871c886ba2551ad2f6e4ed2fcc933d1/PS_A1_Neutral_Hero__1080x1080__copy.png?q=90&fm=webp&w=720&h=720&fit=fill","https://images.ctfassets.net/8cd2csgvqd3m/4AJG5Rs1eJLPm4sZza7Ik5/30c557d2ea8142bfe65ceda7aa863f6a/Grey_2.jpg?q=90&fm=webp&w=720&h=720&fit=fill",
+          "https://images.ctfassets.net/8cd2csgvqd3m/5ndkR0VvlThwnMOOHFXj2I/fc9673d6d4fccb5f73f228e21c619261/Grey_3.jpg?q=90&fm=webp&w=720&h=720&fit=fill"],
+        "red" : ["https://images.ctfassets.net/8cd2csgvqd3m/1MYkVJ3LEgDUbTLX1RjNn1/5be31a211519b30571db64c40ec8db52/Black_2.jpg?q=90&fm=webp&w=720&h=720&fit=fill",
+        "https://images.ctfassets.net/8cd2csgvqd3m/5iBTmSmieSdWdIng0qMsbd/f42bb8fdd324e45504fb7c241c6ec180/Black-1.jpg?q=90&fm=webp&w=720&h=720&fit=fill",
+      "https://images.ctfassets.net/8cd2csgvqd3m/2uPOR632N1crDunUJVEp69/2666f874ad6186727dac28c0c110a3a5/Beosound_A1_black_6.png?q=90&fm=webp&w=720&h=720&fit=fill"]
+      },
       "title": "Beosound A1 2nd Gen",
       "detailTitle": "방수 휴대용 블루투스 스피커",
       "description": "더 긴 사용 시간, 완전 방수, 통합 음성 동우미 그리고 스피커폰. 이동 중에 최고의 사운드를 즐길 수 있는 업그레이드된 제품을 만나보세요.",
