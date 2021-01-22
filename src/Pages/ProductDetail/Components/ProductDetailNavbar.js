@@ -1,38 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import "./ProductDetailNavbar.scss";
 
 class ProductDetailNavbar extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
+    const menu = ["개요", "영감", "특장점", "기술사양"];
+
     return (
       <nav className="productDetailNavbar">
         <div className="productDetailNavbarGroup">
           <ul>
-            <li>
-              <Link to="#">
-                <span>개요</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <span>영감</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <span>특장점</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <span>기술 서양</span>
-              </Link>
-            </li>
+            {menu.map((tab, index) => {
+              return (
+                <li key={index}>
+                  <Link
+                    to={`${tab}`}
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500}
+                  >
+                    {tab}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>

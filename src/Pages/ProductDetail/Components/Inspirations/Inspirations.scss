@@ -1,0 +1,54 @@
+@import "../../../../styles/common.scss";
+
+.inspirations {
+  padding: 60px 36px;
+  
+  .inspirationsGroup {
+    padding-left: 27%;
+    margin-top: 9%;
+
+    .inspirationsTitle {
+      font-size: 2rem;
+  
+      span {
+        border-bottom: 2px solid #000;
+      }
+  
+    }
+    .inspirationsDescription {
+      color: #727373;
+      margin-top: 30px;
+
+      p {
+        width: 70%;
+        line-height: 1.5rem;
+      }
+    }
+  }
+
+  video {
+    outline: none;
+    margin: 5% 9%;
+  }
+
+  .inspirationsSlide {
+    background-color: #fafafa;
+    padding: 50px 0px 6% 0px;
+  
+    .inspirationsSlideImges {
+      margin: 0 auto;
+      text-align: center;
+
+      img {
+        width: 25%;
+      }
+
+
+    }
+  } 
+
+}
+
+
+
+
