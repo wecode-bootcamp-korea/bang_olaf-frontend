@@ -48,14 +48,7 @@ class Login extends Component {
 
   // 버튼 onClick 메소드
   handleLoginBtn = (e) => {
-    const {
-      email,
-      emailhasValue,
-      emailcheck,
-      pw,
-      pwhasValue,
-      validUser,
-    } = this.state;
+    const { email, emailcheck, pw, pwhasValue, validUser } = this.state;
 
     // [변수] 백으로 보내기 위한 모든 조건 확인
     const matchedValue = emailcheck && pw;
