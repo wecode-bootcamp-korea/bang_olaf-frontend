@@ -54,6 +54,12 @@
       justify-content: center;
       flex-direction: column;
 
+      // p.warningMsg {
+      //   margin-top: 200px;
+      //   color: red;
+      //   font-size: 14px;
+      // }
+
       .inputBundle {
         margin-top: 200px;
         div {
@@ -138,6 +144,10 @@
           &:hover {
             cursor: pointer;
             background-color: #464646;
+          }
+
+          &:focus {
+            outline: none;
           }
         }
 
