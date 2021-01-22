@@ -10,7 +10,7 @@ class ProductCard extends Component {
     };
   }
   gotoDetail = (id) => {
-    this.props.history.push(`product_list/product_detail/${id}`);
+    this.props.history.push(`/product/${id}`);
     console.log("click:", id);
   };
 
