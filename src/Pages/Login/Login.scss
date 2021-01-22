@@ -5,12 +5,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //border: 1px solid pink;
   height: 100%;
   width: 100%;
 
   main {
-    //border: 1px solid greenyellow;
     margin-bottom: 200px;
 
     p,
@@ -20,7 +18,6 @@
     }
 
     .loginTitle {
-      //border: 1px solid orange;
       margin-top: 177px;
       margin-bottom: 10px;
       display: flex;
@@ -33,7 +30,6 @@
       }
 
       .loginSmallLogo {
-        //border: 1px solid firebrick;
         padding: 6px 0px;
         font-size: 14px;
         color: black;
@@ -52,7 +48,6 @@
     }
 
     article {
-      //border: 1px solid hotpink;
       width: 500px;
       height: 358px;
       display: flex;
@@ -62,7 +57,6 @@
       .inputBundle {
         margin-top: 200px;
         div {
-          //border: 1px solid rgb(90, 245, 90);
           height: 79px;
           margin: 0 0 8px;
 
@@ -79,7 +73,6 @@
 
           &.success {
             p {
-              //top: 0px;
               display: inline;
             }
           }
@@ -91,7 +84,6 @@
           margin: 6px 0px 2px;
           padding: 1px 2px 7px 0px;
           border: 0px;
-          //border: 1px solid red;
           border-bottom: 1px solid #737373;
           font-size: 18px;
 
@@ -134,7 +126,6 @@
         flex-direction: column;
 
         button {
-          //border: 1px solid red;
           width: 240px;
           height: 40px;
           margin: 30px auto 15px;
@@ -152,7 +143,6 @@
 
         p {
           margin: 5px 0px;
-          //border-bottom: 1px solid #737373;
           text-decoration: underline;
           text-underline-position: under;
           text-align: center;
@@ -171,7 +161,6 @@
     }
 
     button {
-      //position: absolute;
       width: 240px;
       height: 40px;
       margin: 5px;
