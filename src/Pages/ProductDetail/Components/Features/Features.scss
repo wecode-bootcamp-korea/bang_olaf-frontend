@@ -1,0 +1,131 @@
+@import "../../../../styles/common.scss";
+%featuresInfo {
+  h3 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $fontColor;
+  }
+}
+
+.features {
+  padding: 120px 36px 60px;
+
+  .featuresGroup {
+    padding-bottom: 5%;
+    
+    .boxTop {
+      
+      .featuresBox01 {
+        text-align: center;
+
+        img {
+          width: 50%;
+          padding-bottom: 20px;
+        }
+
+        .boxTopInfo {
+          line-height: 1.5rem;
+          text-align: left;
+          width: 50%;
+          margin: 0 auto;
+          @extend %featuresInfo
+        }
+     }
+    }
+    .boxBottom {
+      @include flex;
+      @extend %featuresInfo;
+      margin: 50px 25%;
+      width: 50%;
+      line-height: 1.5rem;
+
+      .featuresBox02 {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .featuresContainer01, .featuresContainer02  {
+    @include flex(space-between);
+    padding-bottom: 10%;
+
+    .featuresContainerInfo {
+      @extend %featuresInfo;
+      line-height: 1.5rem;
+      margin-left: 50px;
+
+      p {
+        width: 80%;
+      }
+
+    }
+
+    img {
+      width: 45rem;
+      margin-left: 100px;
+    }
+
+  }
+
+  .featuresContainer02 {
+    margin-left: 100px;
+  }
+
+  .featuresGallery {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 150px;
+    img {
+      width: 50%;
+    }
+  }
+
+  .featuresResponsiveGroup {
+    @include flex(flex-start,center);
+    background-color: #fafafa;
+    padding-bottom: 5%;
+
+    .featuresResponsiveImage {
+      img[alt="featuresResponsiveImg"] {
+        padding: 50px 0px 50px 50px;
+        margin-left: 100px;
+        width: 750px;
+      }
+    }
+
+    .featuresResponsiveInfo {
+      @extend %featuresInfo;
+      width: 100%;
+      text-align: center;
+      line-height: 1.5rem;
+
+      h3 {
+        font-weight: bold;
+        padding-bottom: 30px;
+      }
+
+      p {
+        font-size: 16px;
+        padding-bottom: 20px;
+      }
+
+      span {
+        font-size: 22px;
+      }
+    
+    }
+  }
+}
+
+
+
+

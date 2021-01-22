@@ -1,0 +1,37 @@
+@import "../../../styles/common.scss";
+
+.loginFooter {
+  //border: 1px solid orange;
+  height: 38px;
+  width: 100%;
+  position: relative;
+  padding: 0 14px;
+  margin-top: 50px;
+
+  select {
+    position: absolute;
+    left: 14px;
+    border: 0px;
+    font-family: $loginFontFamily;
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid #1087dd;
+    }
+  }
+
+  div {
+    position: absolute;
+    right: 14px;
+    padding-left: 0px;
+    span {
+      margin-right: 10px;
+      font-family: $loginFontFamily;
+      font-size: 11px;
+      color: #757575;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
