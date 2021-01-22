@@ -48,14 +48,7 @@ class Login extends Component {
 
   // 버튼 onClick 메소드
   handleLoginBtn = (e) => {
-    const {
-      email,
-      emailhasValue,
-      emailcheck,
-      pw,
-      pwhasValue,
-      validUser,
-    } = this.state;
+    const { email, emailcheck, pw, pwhasValue, validUser } = this.state;
 
     // [변수] 백으로 보내기 위한 모든 조건 확인
     const matchedValue = emailcheck && pw;
@@ -99,7 +92,7 @@ class Login extends Component {
         if (result.message === "SUCCESS") {
           // 메세지 키명: 콘솔 확인 후 백과 상의
           localStorage.setItem("token", result.Authorization); // 토큰 키명: 콘솔 확인 후 백과 상의
-          this.props.history.push("/");
+          this.props.history.push("/product_list");
           return;
         }
 

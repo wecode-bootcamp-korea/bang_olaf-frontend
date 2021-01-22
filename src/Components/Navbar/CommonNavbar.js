@@ -17,7 +17,7 @@ class CommonNavbar extends Component {
             <BiMenu />
           </div>
           <div className="navCenter">
-            <Link to="/">
+            <Link to="/product_list">
               <span>BANG & OLAF</span>
             </Link>
           </div>
