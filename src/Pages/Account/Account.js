@@ -28,7 +28,7 @@ class Account extends React.Component {
     };
   }
 
-  // // 광고 디테일 창
+  // // 광고 디테일 창 (추후 구현 예정)
   // handleDetailAd = () => {
   //   const { detailAd } = this.state;
   //   if (detailAd === true) {
