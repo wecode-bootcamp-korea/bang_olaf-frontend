@@ -1,7 +1,8 @@
 @import "../../styles/common.scss";
+
 .ProductList {
   width: 100%;
   overflow: hidden;
-  // font-family: "Varela Round", sans-serif;
-  font-family: "Gotham A", "Gotham B", Arial, Helvetica, sans-serif;
+  font-family: "Gotham A", "Gotham B", Arial, Helvetica, sans-serif; //본래사이트 폰트
+  //font-family: "Varela Round", sans-serif; //기열님 폰트
 }

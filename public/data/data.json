@@ -1,44 +1,65 @@
-[
-  {
-    "subcategories_id": 1,
-    "image_url": "../images/second.jpeg",
-    "title": "BESOUND A1 2ND GEN",
-    "detail_title": "WATERPROOF BLUETOOTH SPEAKER",
-    "price": "250$"
-  },
-  {
-    "subcategories_id": 2,
-    "image_url": "../images/second.jpeg",
-    "title": "BESOUND BALRANCE",
-    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
-    "price": "2,250$"
-  },
-  {
-    "subcategories_id": 3,
-    "image_url": "../images/second.jpeg",
-    "title": "BESOUND STAGE",
-    "detail_title": "POWERFUL DORBY ATMOS SOUNDBAR",
-    "price": "1,750$"
-  },
-  {
-    "subcategories_id": 4,
-    "image_url": "../images/second.jpeg",
-    "title": "BESOUND BALRANCE",
-    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
-    "price": "2,250$"
-  },
-  {
-    "subcategories_id": 5,
-    "image_url": "../images/second.jpeg",
-    "title": "BESOUND BALRANCE",
-    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
-    "price": "2,250$"
-  },
-  {
-    "subcategories_id": 6,
-    "image_url": "../images/second.jpeg",
-    "title": "BESOUND BALRANCE",
-    "detail_title": "INOVATIVE, WIRELESS HOME SPEAKER",
-    "price": "2,250$"
-  }
-]
+{
+  "results": [
+    {
+      "id": 1,
+      "image_url": [
+        "https://unsplash.com/photos/XKJnYZ4YQj8/download?force=true&w=640",
+        "https://images.unsplash.com/photo-1474508297924-60ae8de135eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzB8fHdoaXRlJTIwc3BlYWtlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+      ],
+      "title": "BESOUND A1 2ND GEN",
+      "detail_title": "방수 휴대용 블루투스 스피커",
+      "price": "25,000",
+      "colors": ["black", "white"]
+    },
+    {
+      "id": 2,
+      "image_url": [
+        "https://images.unsplash.com/photo-1572183717150-0ca8073a2457?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTN8fHNwZWFrZXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+      ],
+      "title": "BEOLIT 20",
+      "detail_title": "강력한 블루투스 스피커",
+      "price": "500,000",
+      "colors": ["black"]
+    },
+    {
+      "id": 3,
+      "image_url": [
+        "https://images.unsplash.com/photo-1521127574-28faf1a160f9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTk0fHxzcGVha2VyfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60"
+      ],
+      "title": "BEOSOUND 1",
+      "detail_title": "Classic 블루투스 스피커",
+      "price": "75,000",
+      "colors": ["black"]
+    },
+    {
+      "id": 4,
+      "image_url": [
+        "https://images.unsplash.com/photo-1436473849883-bb3464c23e93?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTk4fHxzcGVha2VyfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60"
+      ],
+      "title": "BESOUND BALRANCE",
+      "detail_title": "프리미엄 파워와 휴대성",
+      "price": "400,000",
+      "colors": ["white"]
+    },
+    {
+      "id": 5,
+      "image_url": [
+        "https://unsplash.com/photos/XKJnYZ4YQj8/download?force=true&w=640"
+      ],
+      "title": "BEOPLAY P6",
+      "detail_title": "방수 블루투스 스피커",
+      "price": "400,000",
+      "colors": ["black"]
+    },
+    {
+      "id": 6,
+      "image_url": [
+        "https://images.unsplash.com/photo-1474508297924-60ae8de135eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzB8fHdoaXRlJTIwc3BlYWtlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+      ],
+      "title": "BESOUND BALRANCE",
+      "detail_title": "Egg 스피커",
+      "price": "25,000",
+      "colors": ["white"]
+    }
+  ]
+}
