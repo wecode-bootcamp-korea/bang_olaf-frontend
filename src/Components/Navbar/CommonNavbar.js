@@ -23,7 +23,7 @@ class CommonNavbar extends Component {
           </div>
           <ul className="navRight">
             <li className="navRightGroup">
-              <Link to="#">
+              <Link to="/login">
                 <img alt="support--IMG" src="../images/support.PNG" />
               </Link>
               <Link to="#">

@@ -3,10 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
-$black : #000;
-$gray : #F3F3F3;
-$white : #fff;
-$fontColor : #727373;
+$black: #000;
+$gray: #f3f3f3;
+$white: #fff;
+$fontColor: #727373;
 $logonAccountCommonFontFamily: Arial, Helvetica, sans-serif;
 $accountFontfamily: "Poppins", sans-serif;
 $loginFontFamily: "Montserrat", sans-serif;
@@ -29,7 +29,7 @@ $loginFontFamilyBold: "Montserrat", sans-serif;
   justify-content: $justify;
   align-items: $align;
 }
- 
+
 %featuresInfo {
   h3 {
     font-size: 14px;
@@ -46,6 +46,3 @@ $loginFontFamilyBold: "Montserrat", sans-serif;
     color: $fontColor;
   }
 }
-
-
-
