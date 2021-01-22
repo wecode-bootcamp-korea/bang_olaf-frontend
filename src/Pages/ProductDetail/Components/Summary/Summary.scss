@@ -1,0 +1,121 @@
+@import "../../../../styles/common.scss";
+
+.summary {
+  position: relative;
+  top: 100px;
+  background-color: #fafafa;
+  height: 100%;
+  padding: 0 36px;
+  
+  .summaryGroup {
+    @include flex;
+    padding: 100px;
+    background-color: #fafafa;
+  
+    .summaryContent {
+      height: 100%;
+      padding: 40px 60px;
+
+      .summaryTitle {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 60px;
+      }
+
+      .summaryDetailTitle {
+        font-size: 40px;
+        margin-bottom: 40px;
+      }
+
+      .summaryDescription {
+        margin-bottom: 20px;
+        line-height: 1.5rem;
+      }
+
+      .summaryDescriptionReview {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        @include flex(_, center);
+        margin-bottom: 35px;
+
+        li {
+          outline: $white;
+          padding-left: 10px;
+
+          .colorBorder {
+            border: 1px solid rgb(169, 169, 169);
+            border-radius: 50%;
+            background: rgb(255, 255, 255);
+            outline: none;
+            cursor: pointer;
+            p {
+              text-indent: -9999px;
+            }
+
+          }
+
+          .colorBorder > .colorContent01 {
+            background-color: #000;
+            @extend %colorBorder;
+          }
+
+          .colorBorder > .colorContent02 {
+            background-color: red;
+            @extend %colorBorder;
+          }
+        }
+
+      }
+
+      span {
+        padding-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .summaryPrice {
+        padding: 10px;
+        margin-top: 20px;
+
+      }
+      
+    }
+  }
+
+  .summaryAttribute {
+    width: 100%;
+    background-color: #fafafa;
+    border-top: 1px solid #efefef;
+    
+    ul {
+      @include flex;
+      padding: 10px 20px 30px 0px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    li {
+      margin: 0 auto;
+
+      img {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        bottom: -7px;
+      }
+
+    }
+
+    a {
+      padding: 10px;
+      font-size: 14px;
+      color: #848484;
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
+}
