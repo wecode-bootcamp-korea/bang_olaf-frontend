@@ -1,0 +1,15 @@
+.NavList {
+  margin-top: 61px;
+  height: 48px;
+  line-height: 48px;
+  display: flex;
+  justify-content: space-around;
+
+  li {
+    font-size: 20px;
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+}

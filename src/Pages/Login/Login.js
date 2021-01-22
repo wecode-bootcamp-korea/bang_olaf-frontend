@@ -147,10 +147,12 @@ class Login extends Component {
                   <p className="warningMsg">
                     {emailcheck ? "" : "유효한 이메일 형식이 아닙니다."}
                   </p>
+                  {!emailhasValue && (
+                    <span className="warningMsg">
+                      이메일은 필수 입력 항목입니다.
+                    </span>
+                  )}
                 </div>
-                {!emailhasValue && (
-                  <p className="warningMsg">이메일은 필수 입력 항목입니다.</p>
-                )}
               </div>
               <div className="pwBundle">
                 <p>비밀번호</p>
@@ -183,9 +185,10 @@ class Login extends Component {
         </main>
         <aside className="otherwayLoginBundle">
           <p>다른 서비스로 로그인</p>
+
           <button className="facebookBtn">
             <Icon className="facebookIcons" icon={facebookOfficial} size={20} />
-            FACEBOOK
+            <span>FACEBOOK</span>
           </button>
           <button className="appleBtn">
             <Icon className="appleIcons" icon={apple} size={20} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { SERVER, SIGNUP_API } from "../../config";
 import { Link } from "react-router-dom";
-import AccountFooter from "./components/AccountFooter";
+import AccountFooter from "./components/AccountFooter/AccountFooter";
 import "./Account.scss";
 
 class Account extends React.Component {

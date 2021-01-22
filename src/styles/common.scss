@@ -6,11 +6,17 @@
 $black: #000;
 $gray: #f3f3f3;
 $white: #fff;
+$fontColor: #727373;
+$logonAccountCommonFontFamily: Arial, Helvetica, sans-serif;
+$accountFontfamily: "Poppins", sans-serif;
+$loginFontFamily: "Montserrat", sans-serif;
+$accountFontFamily700: "Montserrat", sans-serif;
+$loginFontFamilyBold: "Montserrat", sans-serif;
 
-@mixin flex($justify: space-between, $align: center) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
+%colorBorder {
+  width: 17px;
+  border-radius: 50%;
+  margin: 5px;
 }
 
 %fullScreen {
@@ -18,8 +24,25 @@ $white: #fff;
   height: 100vh;
 }
 
-$logonAccountCommonFontFamily: Arial, Helvetica, sans-serif;
-$accountFontfamily: "Poppins", sans-serif;
-$loginFontFamily: "Montserrat", sans-serif;
-$accountFontFamily700: "Montserrat", sans-serif;
-$loginFontFamilyBold: "Montserrat", sans-serif;
+@mixin flex($justify: space-between, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+%featuresInfo {
+  h3 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $fontColor;
+  }
+}
