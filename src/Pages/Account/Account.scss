@@ -30,11 +30,10 @@
       }
 
       .inputBundle {
-        div {
-          margin-bottom: 8px;
-        }
         .accountTextInput {
           height: 79px;
+          margin-bottom: 8px;
+
           .checkemail {
             p {
               display: none;
@@ -133,17 +132,45 @@
             height: 110px;
             padding: 10px 0 20px;
             line-height: 16px;
+
             .sameWithFooterfont {
               font-family: $loginFontFamily;
             }
+
+            .clickDetailAdagreement {
+              border-bottom: 1px solid;
+              cursor: pointer;
+
+              &:hover {
+                color: black;
+              }
+            }
+
+            // 추후 수정 예정
+            // .detailAdDesc {
+            //   display: none;
+
+            //   &.success {
+
+            //   }
+            // }
           }
         }
 
         .secondCheckboxBundle {
+          //border: 1px solid greenyellow;
           height: 60px;
           margin-top: 30px;
           display: flex;
           align-items: flex-start;
+          flex-direction: column;
+
+          div {
+            // border: 1px solid pink;
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+          }
 
           input[id="secondCheckbox"] {
             display: none;
@@ -165,6 +192,10 @@
             background-color: black;
             outline: 2px solid #63cd80;
           }
+
+          // p {
+          //   padding-left: 32px;
+          // }
         }
       }
     }
@@ -183,9 +214,12 @@
         background-color: black;
         color: white;
         font-size: 14px;
+        border: 0px;
+        outline: none;
 
         &:hover {
           background-color: #464646;
+          cursor: pointer;
         }
       }
 
@@ -196,6 +230,10 @@
         text-align: center;
         font-size: 16px;
         color: #737373;
+
+        &:hover {
+          color: black;
+        }
       }
     }
   }
