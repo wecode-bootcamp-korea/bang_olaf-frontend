@@ -22,11 +22,12 @@ class ProductDetail extends Component {
   }
 
   updateDate() {
-    fetch(PRODUCTDETAIL_API, {
+    fetch(PRODUCTDETAIL_API + `/${this.props.match.params.id}`, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         this.setState({
           Datas: data.results,
           imgUrl: data.results[0].productsData.colors,
