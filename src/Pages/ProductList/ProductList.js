@@ -30,8 +30,14 @@ class ProductList extends Component {
   fetchProductList = (menuText) => {
     console.log(menuText);
     const menuTable = {
-      VIEWALL: "/data/data1.json", //"http://10.58.2.216:8000/product/category/1",
-      PORTABLE: "data/data.json", //"http://10.58.2.216:8000/product/subcategory/1",
+      VIEWALL: "/data/data1.json",
+      //목데이터
+      //"http://10.58.2.216:8000/product/category/1",
+      //데이터 통신
+      PORTABLE: "data/data.json",
+      //목데이터
+      //"http://10.58.2.216:8000/product/subcategory/1",
+      //데이터 통신
     };
 
     fetch(menuTable[menuText])
